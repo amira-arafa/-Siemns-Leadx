@@ -9,6 +9,7 @@ const Routes = (
       <Switch>
         <LazyComponent.Login path="/" exact />
         <LazyComponent.Register path="/register" exact />
+        <LazyComponent.Profile path="/profile" exact />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>
