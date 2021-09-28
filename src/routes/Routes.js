@@ -7,6 +7,7 @@ const Routes = (
   <Suspense fallback={'loading...'}>
     <Router history={history}>
       <Switch>
+        <LazyComponent.Login path="/" exact />
         <LazyComponent.Home path="/" exact />
         <Redirect from="*" to="/" />
       </Switch>
