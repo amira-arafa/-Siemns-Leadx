@@ -1,3 +1,36 @@
+*,
+html,
+body {
+  outline: 0 !important;
+}
+
+#root {
+  position: relative;
+}
+
 .rtl {
-    text-align: right;
+  text-align: right;
+}
+
+.row {
+  margin: 0 auto;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.word-break {
+  word-break: break-all;
+}
+
+.font_family_bold {
+  font-family: "Helvetica-Bold";
+}
+.font_family_regular {
+  font-family: "Helvetica-Bold";
+}
+.rtl {
+  .font_family_regular,
+  .font_family_bold {
+    font-family: "JannaLTRegular", sans-serif !important ;
+  }
 }

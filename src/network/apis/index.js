@@ -2,9 +2,11 @@ import axios from "axios";
 import { requestHandler, successHandler, errorHandler } from "../interceptors";
 
 export const axiosInstance = axios.create({
-  baseURL: "your base url",
-  params: {
-    api_key: "your api key or any"
+  baseURL: "http://tarekelsayed-001-site1.htempurl.com",
+  headers: {
+    'Accept': '*/*',
+    'X-API-Key': 'F0CF9981-49BF-475F-B338-691D05F98520',
+    'Content-Type': 'application/json' 
   }
 });
 

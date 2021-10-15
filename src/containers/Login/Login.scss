@@ -1,0 +1,12 @@
+.login-container{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    .login-with-microsoft{
+        line-height: 30;
+    }
+    .microsoft-login{
+        border: 2px solid #EB683D;
+        border-radius: 10px;
+    }
+}
