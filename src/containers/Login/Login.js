@@ -39,7 +39,7 @@ const Login = () => {
             className="microsoft-login"
             clientId={"7c8cbc48-035a-4861-b492-47f8b5e26dd4"}
             authCallback={loginHandler}
-            redirectUri={"https://agitated-austin-23558c.netlify.app"}
+            redirectUri={window.location.href.includes("localhost") ? "http://localhost:3000/" :"siemens-leadx.netlify.app"}
             withUserData="true"
             useLocalStorageCache={true} 
           />
