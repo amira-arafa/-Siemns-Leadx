@@ -16,6 +16,7 @@ const Routes = (
         <LazyComponent.LeadDetails path="/leads/details/:id" />
         <Redirect from="*" to="/" />
       </Switch>
+      <LazyComponent.Footer />
     </Router>
   </Suspense>
 );

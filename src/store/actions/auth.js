@@ -1,5 +1,6 @@
 import { axiosInstance } from "../../network/apis";
 import { STORE_LOGIN_MICROSOFT, STORE_LOGIN_API_DATA } from "../types/auth";
+import history from "../../routes/History";
 
 export const loginAPi = (user) => async (dispatch) => {
   try {
@@ -7,7 +8,8 @@ export const loginAPi = (user) => async (dispatch) => {
       handlerEnabled: true,
     });
     dispatch(storeLoginApiData(res.data.data));
-    localStorage.setItem("token",res?.data?.data?.user?.access_token)
+    localStorage.setItem("token",res?.data?.data?.user?.access_token);
+    res && history.push("/leads")
   } catch (err) {
     console.log(err);
   }

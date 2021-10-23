@@ -39,6 +39,14 @@ body {
 
 .rtl {
   text-align: right;
+  min-height: 98vh;
+  display: flex;
+  flex-direction: column;
+}
+.ltr {
+  min-height: 98vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .row {

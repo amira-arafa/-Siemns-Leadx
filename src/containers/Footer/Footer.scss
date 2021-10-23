@@ -1,0 +1,11 @@
+@import "../../scss//variables";
+
+.footer-container {
+  margin-top: auto;
+  p {
+    padding: 0rem 0.84rem;
+  }
+  hr {
+    border-color: $lineColor;
+  }
+}

@@ -27,7 +27,7 @@ const Header = () => {
   const  { Auth } = useSelector((state=>state))
   useEffect(() => {
     dispatch(setCurrentLang(language));
-  }, [language]);
+  }, [language , dispatch]);
 
   return (
     <div className="header-container">
@@ -93,8 +93,8 @@ const Header = () => {
                   <DropdownMenu>
                     <DropdownItem onClick={()=>{
                     localStorage.removeItem("token");
-                    dispatch(storeLoginApiData(null));
-                    dispatch(storeLoginMicrosoftInstance(null , null));
+                    dispatch(storeLoginApiData(false));
+                    dispatch(storeLoginMicrosoftInstance(false , false));
                     Auth.loginMicrosoftMsal.logout();
                     }}><FormattedMessage id="Logout" /></DropdownItem>
                   </DropdownMenu>
