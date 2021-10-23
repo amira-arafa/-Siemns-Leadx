@@ -1,1 +1,70 @@
-@import '../../scss/variables';
+@import "../../scss/variables";
+
+.header-container {
+  .nav-bar {
+    background-color: $whiteColor;
+    padding: 0.65rem 0.84rem;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+    img[alt="Siemns-logo"] {
+      width: 7rem;
+    }
+    img[alt="header-icon"] {
+      width: 1.2rem;
+    }
+    div[class*="singleValue"] {
+      color: $greyColor;
+      font-family: "Siemens-Sans";
+    }
+    div[class*="control"] {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none;
+    }
+    div[class*="container"] {
+      &:focus {
+        outline: none !important;
+        border: none !important;
+        box-shadow: none;
+      }
+    }
+    div[class*="ValueContainer"]{
+        padding: 2px;
+    }
+    span[class*="indicatorSeparator"] {
+      display: none;
+    }
+    div[class*="indicatorContainer"] {
+      padding: 0px;
+      color: $greyColor;
+      font-family: "Siemens-Sans";
+    }
+    .user-full-name {
+      line-height: 1.2;
+      .dropdown{
+          button{
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            &:focus{
+                border: none;
+                outline: none;
+                box-shadow: none;
+            }
+          }
+      }
+    }
+    .header-user-name {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: #e6e6e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dropdown-menu{
+        padding: 1rem;
+        left: -21%;
+    }
+  }
+}

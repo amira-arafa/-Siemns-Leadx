@@ -1,7 +1,36 @@
-*,
+@import "./variables";
+@import "./fonts";
+
 html,
 body {
   outline: 0 !important;
+  background-color: $mainBackGroundColor;
+  font-size: 15px;
+}
+.SH-Bree-Headline {
+  font-family: "SH-Bree-Headline";
+}
+
+.headingsColor {
+  color: $headingColor;
+}
+.greyColor {
+  color: $greyColor;
+}
+
+.Siemens-Sans {
+  font-family: "Siemens-Sans";
+}
+
+.font-size-13 {
+  font-size: 13px;
+}
+.font-size-12 {
+  font-size: 12px;
+}
+
+.font-weight-900 {
+  font-weight: 900;
 }
 
 #root {
@@ -20,17 +49,4 @@ body {
 }
 .word-break {
   word-break: break-all;
-}
-
-.font_family_bold {
-  font-family: "Helvetica-Bold";
-}
-.font_family_regular {
-  font-family: "Helvetica-Bold";
-}
-.rtl {
-  .font_family_regular,
-  .font_family_bold {
-    font-family: "JannaLTRegular", sans-serif !important ;
-  }
 }

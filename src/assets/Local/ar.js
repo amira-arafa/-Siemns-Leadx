@@ -19,6 +19,11 @@ export default {
     AddSystem : 'اضف نظام',
     Submit : 'تقدم',
     DevicesLeads : 'جهاز / نظام',
-    ThisFieldisRequired: 'هذه المعلومات ضرورية'
+    ThisFieldisRequired: 'هذه المعلومات ضرورية',
+    LeadX : 'LeadX',
+    contactUS : 'Contact us',
+    Logout : "Logout",
+    WelcometoLeadX : "Welcome to LeadX",
+    loginSentance : "LeadX is a lead generation program for all employees aimed to open the door for all Healthineers to participate in generating business and ensure opportunities are never missed !"
   }
 }
