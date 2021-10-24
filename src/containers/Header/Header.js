@@ -13,9 +13,10 @@ import {
 import notificationsIcon from "../../assets/imgs/ic_Notification.svg";
 import { Row, Col } from "reactstrap";
 import { setCurrentLang } from "../../store/actions/Lang";
-import { storeLoginApiData, storeLoginMicrosoftInstance } from "../../store/actions/auth";
+import { changeLogoutSpinnerStatus } from "../../store/actions/auth";
 import { FormattedMessage } from "react-intl";
 import "./Header.scss";
+import history from "../../routes/History";
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -92,10 +93,14 @@ const Header = () => {
                   </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem onClick={()=>{
-                    localStorage.removeItem("token");
-                    dispatch(storeLoginApiData(false));
-                    dispatch(storeLoginMicrosoftInstance(false , false));
-                    Auth.loginMicrosoftMsal.logout();
+                      dispatch(changeLogoutSpinnerStatus(true));
+                      history.push({
+                        pathname : "/",
+                        state : {
+                          from : 'logout'
+                        }
+                      })
+                      
                     }}><FormattedMessage id="Logout" /></DropdownItem>
                   </DropdownMenu>
                 </Dropdown>

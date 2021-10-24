@@ -22,8 +22,8 @@ export default {
     ThisFieldisRequired: 'هذه المعلومات ضرورية',
     LeadX : 'LeadX',
     contactUS : 'Contact us',
-    Logout : "Logout",
+    Logout : "تسجيل الخروج",
     WelcometoLeadX : "Welcome to LeadX",
-    loginSentance : "LeadX is a lead generation program for all employees aimed to open the door for all Healthineers to participate in generating business and ensure opportunities are never missed !"
+    loginSentance : "هو برنامج يتيح الفرصة لمشاركة جميع موظفين سيمنس للرعاية الطبية في ايجاد وخلق فرص لبدأ اعمال جديدة !"
   }
 }

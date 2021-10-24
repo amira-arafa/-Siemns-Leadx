@@ -5,7 +5,6 @@ export const createLeadApi = (data) => async (dispatch) => {
     const res = await axiosInstance.post("/api/v1/leads", data, {
       handlerEnabled: true,
     });
-    console.log("REssss", res);
   } catch (err) {
     console.log(err);
   }
