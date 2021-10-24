@@ -14,6 +14,10 @@ body {
 .headingsColor {
   color: $headingColor;
 }
+
+.headingLeadsColor {
+  color: $headingLeadsColor;
+}
 .greyColor {
   color: $greyColor;
 }
@@ -22,13 +26,22 @@ body {
   font-family: "Siemens-Sans";
 }
 
+.Siemens-Sans-black {
+  font-family: 'Siemens-Sans-black';
+}
+
 .font-size-13 {
   font-size: 13px;
 }
 .font-size-12 {
   font-size: 12px;
 }
-
+.font-size-19 {
+  font-size: 19px;
+}
+.font-size-16 {
+  font-size: 16px;
+}
 .font-weight-900 {
   font-weight: 900;
 }
