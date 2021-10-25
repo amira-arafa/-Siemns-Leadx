@@ -68,7 +68,7 @@ const Login = () => {
                     redirectUri={
                       window?.location?.href?.includes("localhost")
                         ? "http://localhost:3000"
-                        : "siemens-leadx.netlify.app"
+                        : "https://siemens-leadx.netlify.app"
                     }
                     withUserData="true"
                     useLocalStorageCache="true"
