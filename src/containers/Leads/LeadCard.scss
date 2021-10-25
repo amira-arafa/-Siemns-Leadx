@@ -1,0 +1,15 @@
+@import "../../scss/variables";
+
+.lead-card-container {
+  background-color: rgba(255, 255, 255, 1);
+  margin: 0rem auto 1.1rem auto;
+  padding: 1.2rem 1.8rem;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+  .leadIdColor {
+    color: $leadIdColor;
+  }
+  .hr {
+    border: 0.5px solid #e6e6e6;
+    margin: 0.7rem 0rem 0.7rem 0rem;
+  }
+}

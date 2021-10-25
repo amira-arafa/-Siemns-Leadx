@@ -30,6 +30,10 @@ body {
   font-family: 'Siemens-Sans-black';
 }
 
+.Siemens-Sans-bold {
+  font-family: 'Siemens-Sans-bold';
+}
+
 .font-size-13 {
   font-size: 13px;
 }
@@ -38,6 +42,9 @@ body {
 }
 .font-size-19 {
   font-size: 19px;
+}
+.font-size-18 {
+  font-size: 18px;
 }
 .font-size-16 {
   font-size: 16px;
@@ -70,4 +77,16 @@ body {
 }
 .word-break {
   word-break: break-all;
+}
+.btn-none{
+  background-color: #ec6602;
+  border: none;
+  padding: 0.69rem 1.2rem;
+  font-family: 'Siemens-Sans-black';
+  font-size: 15px;
+  color: #fff;
+  font-weight: 900;
+  &:hover {
+   color: #fff;
+  }
 }

@@ -4,7 +4,8 @@
 
 export const requestHandler = request => {
   if (isHandlerEnabled(request)) {
-    // handle requests
+    request.headers["Authorization"] = `Bearer ${localStorage.getItem('token')}`;
+    request.headers["Accept-Language"] = localStorage.getItem('lang');
   }
   return request;
 };

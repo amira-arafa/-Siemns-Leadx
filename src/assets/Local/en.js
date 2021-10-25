@@ -27,6 +27,7 @@ export default {
     loginSentance : "LeadX is a lead generation program for all employees aimed to open the door for all Healthineers to participate in generating business and ensure opportunities are never missed !",
     emptyLeads : "You don’t have any leads yet !",
     emptyLeads2 : " Create new leads and enjoy tracking its status",
-    noLeadsYet : "No Leads Yet !"
+    noLeadsYet : "No Leads Yet !",
+    leadStatus : "Lead Status"
   }
 }

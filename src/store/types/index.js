@@ -3,3 +3,4 @@ export const GET_CURRENT_LANG = 'GET_CURRENT_LANG';
 
 export const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST';
 export const FETCH_DATA = 'FETCH_DATA';
+export const STORE_LEADS_LIST = "STORE_LEADS_LIST"

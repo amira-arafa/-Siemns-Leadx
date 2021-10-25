@@ -27,6 +27,7 @@ export default {
     loginSentance : "هو برنامج يتيح الفرصة لمشاركة جميع موظفين سيمنس للرعاية الطبية في ايجاد وخلق فرص لبدأ اعمال جديدة !",
     emptyLeads : "You don’t have any leads yet ! Create new leads and enjoy tracking its status",
     emptyLeads2 : " Create new leads and enjoy tracking its status",
-    noLeadsYet :  "! لا يوجد فرص بعد"
+    noLeadsYet :  "! لا يوجد فرص بعد",
+    leadStatus : "Lead Status"
   }
 }

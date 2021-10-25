@@ -77,7 +77,7 @@ const Header = () => {
             <div className="px-1">
               <img src={notificationsIcon} alt="header-icon" />
             </div>
-            {Auth?.microsoftLoginData &&<div className="d-flex px-1 align-items-center">
+            {Auth?.microsoftLoginData && localStorage.getItem("token") &&<div className="d-flex px-1 align-items-center">
               <div className="Siemens-Sans greyColor header-user-name mx-2 font-weight-900 font-size-12">
               {Auth?.microsoftLoginData?.givenName?.charAt(0)}{Auth?.microsoftLoginData?.surname?.charAt(0)}
               </div>
