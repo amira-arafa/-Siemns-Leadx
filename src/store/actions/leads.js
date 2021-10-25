@@ -11,10 +11,11 @@ export const createLeadApi = (data) => async (dispatch) => {
   }
 };
 
-export const getLeadsList = () => async (dispatch) => {
+export const getLeadsList = (params) => async (dispatch) => {
   try {
     const res = await axiosInstance.get("/api/v1/leads", {
       handlerEnabled: true,
+      params
     });
     console.log("res",res.data)
     dispatch({

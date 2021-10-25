@@ -1,0 +1,48 @@
+@import "../../scss/variables";
+
+.pagination {
+    justify-content: center;
+    direction: rtl;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul.pagination li {
+    width: 30px;
+    border: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    border-radius: 20%;
+    margin: 0px 0.2rem;
+    background-color: #fff;
+  }
+  
+  ul.pagination li a {
+    text-decoration: none;
+    color: $secondaryColor;
+    font-size: 17px;
+  }
+  
+  ul.pagination li.active a {
+    color: white;
+  }
+  ul.pagination li.active {
+    background-color: $secondaryColor;
+  }
+  
+  
+  .page-selection {
+    width: 48px;
+    height: 30px;
+    color: $secondaryColor;
+  }
+  
+  .pagination-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }

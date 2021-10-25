@@ -1,19 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import emptyLeadsIcon from "../../assets/imgs/ic_no_data_Circle.svg";
-import  plus  from "../../assets/imgs/plus (1).svg";
+import plus from "../../assets/imgs/plus (1).svg";
 import { getLeadsList } from "../../store/actions/leads";
 import { FormattedMessage } from "react-intl";
 import LeadCard from "./LeadCard";
 import "./LeadsList.scss";
+import PaginationComponent from "../../components/Button/PaginationComponent";
 import { Button } from "reactstrap";
 
 const LeadsList = () => {
   const { leads, locale } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const [ activePage , setActivepage ] = useState(1);
   useEffect(() => {
-    dispatch(getLeadsList());
+    dispatch(getLeadsList({
+      page_number : activePage, 
+      page_size : 10
+    }));
   }, [dispatch]);
+  const handlePageChange = (e) => {
+    setActivepage(e);
+    dispatch(getLeadsList({
+      page_number : e, 
+      page_size : 10
+    }));
+  }
 
   return (
     <div className="lead-list-container">
@@ -28,30 +40,53 @@ const LeadsList = () => {
             <br />
             <FormattedMessage id="emptyLeads2" />
           </p>
-          <Button color="none"><img src={plus} alt="plus-icon"/>
-          <span  className="mx-2"> <FormattedMessage id="CreateNewLead"/> </span>
+          <Button color="none">
+            <img src={plus} alt="plus-icon" />
+            <span className="mx-2">
+              {" "}
+              <FormattedMessage id="CreateNewLead" />{" "}
+            </span>
           </Button>
         </div>
       ) : (
         <div className="lead-cards">
-          <div className={`${locale.lang==="ar" ? "text-left" : "text-right"} my-5`}>
-          <Button color="none"><img src={plus} alt="plus-icon"/>
-          <span  className="mx-2"> <FormattedMessage id="CreateNewLead"/> </span>
-          </Button>
+          <div
+            className={`${
+              locale.lang === "ar" ? "text-left" : "text-right"
+            } my-5`}
+          >
+            <Button color="none">
+              <img src={plus} alt="plus-icon" />
+              <span className="mx-2">
+                {" "}
+                <FormattedMessage id="CreateNewLead" />{" "}
+              </span>
+            </Button>
           </div>
-          {leads?.leadsList?.data?.map((item)=>{
-            return <LeadCard
-              key={item.lead_id}
-              lang={locale.lang}
-              id={item.lead_id}
-              createdAt={item.created_on}
-              leadName={item.lead_name}
-              hospitalName={item.hospital_name}
-              textColor={item.lead_status_text_color}
-              backgroundColor={item.lead_status_back_color}
-              status={item.lead_status}
-            />
+          {leads?.leadsList?.data?.map((item) => {
+            return (
+              <LeadCard
+                key={item.lead_id}
+                lang={locale.lang}
+                id={item.lead_id}
+                createdAt={item.created_on}
+                leadName={item.lead_name}
+                hospitalName={item.hospital_name}
+                textColor={item.lead_status_text_color}
+                backgroundColor={item.lead_status_back_color}
+                status={item.lead_status}
+              />
+            );
           })}
+          <div className="my-5">
+            {leads.leadsList?.meta?.total > 10 && <PaginationComponent
+              activePage={activePage}
+              itemsCountPerPage={10}
+              totalItemsCount={leads.leadsList?.meta?.total}
+              pageRangeDisplayed={leads.leadsList?.meta?.totalPages}
+              handlePageChange={(e)=>handlePageChange(e)}
+            />}
+          </div>
         </div>
       )}
     </div>
