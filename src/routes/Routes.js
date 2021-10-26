@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Router, Switch, Redirect } from "react-router-dom";
+import { Router, Switch, Redirect , Route } from "react-router-dom";
 import history from "./History";
 import { PrivateRoute, PublicRoute } from "./RouteTypes";
 import * as LazyComponent from "../utils/LazyLoaded";
@@ -16,7 +16,7 @@ const Routes = (
         <LazyComponent.Profile path="/profile" />
         <LazyComponent.LeadsCreate path="/leads/create" />
         {/* <LazyComponent.LeadsList path="/leads" exact /> */}
-        <LazyComponent.LeadDetails path="/leads/details/:id" />
+        <Route  path="/leads/details/:id" exact component={LazyComponent.LeadDetails}/>
         <Redirect from="*" to="/" />
       </Switch>
       <LazyComponent.Footer />

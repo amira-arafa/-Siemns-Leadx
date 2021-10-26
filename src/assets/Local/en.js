@@ -28,6 +28,9 @@ export default {
     emptyLeads : "You don’t have any leads yet !",
     emptyLeads2 : " Create new leads and enjoy tracking its status",
     noLeadsYet : "No Leads Yet !",
-    leadStatus : "Lead Status"
+    leadStatus : "Lead Status",
+    leadDetails : "Lead Details",
+    leadID : "Lead ID",
+    Information: "Information"
   }
 }

@@ -37,7 +37,7 @@ export const changeLogoutSpinnerStatus = (payload ) => ({
 export const Auth = {
   getAuth() {
     const isAuthenticated =
-     (localStorage.getItem("token") &&  localStorage.getItem("microsoftLoginData"))
+     (localStorage.getItem("token") &&  localStorage.getItem("microsoftLoginData") &&  localStorage.getItem("loginApiUserData"))
         ? true
         : false;
     return isAuthenticated;

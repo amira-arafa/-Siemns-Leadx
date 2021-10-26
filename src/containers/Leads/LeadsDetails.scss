@@ -1,7 +1,64 @@
-@import "../../scss//variables";
+@import "../../scss/variables";
 
 .leads-details-container {
-    width: 57%;
-    margin: 0 auto;
-    padding-top: 4rem;
+  .RFS-StepButton {
+    background-color: #e6e6e6 !important;
+    color: #666666;
+  }
+  width: 57%;
+  margin: 0 auto;
+  padding-top: 4rem;
+  .status-container {
+    background-color: $whiteColor;
+  }
+  .hr {
+    border: 0.5px solid #e6e6e6;
+    margin: 0.7rem 0rem 0.7rem 0.4rem;
+  }
+  .status-circle {
+    span {
+      background-color: #e6e6e6;
+      border-radius: 50%;
+      color: #666666;
+      padding: 1rem 1.2rem;
+    }
+  }
+
+  .label {
+    color: $headingColor;
+    font-family: "Siemens-Sans";
+    margin-bottom: 10px;
+  }
+  .lead-data {
+    font-size: 17px;
+    font-family: "Siemens-Sans-bold";
+    color: #1a1a1a;
+    margin-bottom: 0;
+    font-weight: 900;
+  }
+  hr {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .card-box-shadow {
+    box-shadow: 0 2px 11px 0 #a7a7a7;
+  }
+  .stepper-container {
+    &:first-child {
+      direction: ltr;
+    }
+  }
+    .breadCrumpIcon{
+      &:after{
+        content: ">";
+        font-family: "feather";
+        color: #1a1a1a;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
 }

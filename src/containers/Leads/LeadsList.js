@@ -5,27 +5,32 @@ import plus from "../../assets/imgs/plus (1).svg";
 import { getLeadsList } from "../../store/actions/leads";
 import { FormattedMessage } from "react-intl";
 import LeadCard from "./LeadCard";
-import "./LeadsList.scss";
-import PaginationComponent from "../../components/Button/PaginationComponent";
 import { Button } from "reactstrap";
+import history from "../../routes/History";
+import PaginationComponent from "../../components/Button/PaginationComponent";
+import "./LeadsList.scss";
 
 const LeadsList = () => {
   const { leads, locale } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [ activePage , setActivepage ] = useState(1);
+  const [activePage, setActivepage] = useState(1);
   useEffect(() => {
-    dispatch(getLeadsList({
-      page_number : activePage, 
-      page_size : 10
-    }));
-  }, [dispatch]);
+    dispatch(
+      getLeadsList({
+        page_number: activePage,
+        page_size: 10,
+      })
+    );
+  }, [dispatch, locale.lang]);
   const handlePageChange = (e) => {
     setActivepage(e);
-    dispatch(getLeadsList({
-      page_number : e, 
-      page_size : 10
-    }));
-  }
+    dispatch(
+      getLeadsList({
+        page_number: e,
+        page_size: 10,
+      })
+    );
+  };
 
   return (
     <div className="lead-list-container">
@@ -65,27 +70,34 @@ const LeadsList = () => {
           </div>
           {leads?.leadsList?.data?.map((item) => {
             return (
-              <LeadCard
+              <div
                 key={item.lead_id}
-                lang={locale.lang}
-                id={item.lead_id}
-                createdAt={item.created_on}
-                leadName={item.lead_name}
-                hospitalName={item.hospital_name}
-                textColor={item.lead_status_text_color}
-                backgroundColor={item.lead_status_back_color}
-                status={item.lead_status}
-              />
+                className="cursor-pointer"
+                onClick={() => history.push(`/leads/details/${item.lead_id}`)}
+              >
+                <LeadCard
+                  lang={locale.lang}
+                  id={item.lead_id}
+                  createdAt={item.created_on}
+                  leadName={item.lead_name}
+                  hospitalName={item.hospital_name}
+                  textColor={item.lead_status_text_color}
+                  backgroundColor={item.lead_status_back_color}
+                  status={item.lead_status}
+                />
+              </div>
             );
           })}
           <div className="my-5">
-            {leads.leadsList?.meta?.total > 10 && <PaginationComponent
-              activePage={activePage}
-              itemsCountPerPage={10}
-              totalItemsCount={leads.leadsList?.meta?.total}
-              pageRangeDisplayed={leads.leadsList?.meta?.totalPages}
-              handlePageChange={(e)=>handlePageChange(e)}
-            />}
+            {leads.leadsList?.meta?.total > 10 && (
+              <PaginationComponent
+                activePage={activePage}
+                itemsCountPerPage={10}
+                totalItemsCount={leads.leadsList?.meta?.total}
+                pageRangeDisplayed={leads.leadsList?.meta?.totalPages}
+                handlePageChange={(e) => handlePageChange(e)}
+              />
+            )}
           </div>
         </div>
       )}

@@ -1,5 +1,5 @@
 import { axiosInstance } from "../../network/apis";
-import { STORE_LEADS_LIST } from "../types/index"
+import { STORE_LEADS_LIST, GET_LEAD_DETAILS } from "../types/index"
 
 export const createLeadApi = (data) => async (dispatch) => {
   try {
@@ -26,3 +26,19 @@ export const getLeadsList = (params) => async (dispatch) => {
     console.log(err);
   }
 };
+
+export const getLeadDetails = (id) => async (dispatch) => {
+  try {
+    const res = await axiosInstance.get(`/api/v1/leads/${id}`, {
+      handlerEnabled: true,
+    });
+    dispatch({
+      type: GET_LEAD_DETAILS,
+      payload: res?.data?.data
+    })
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+

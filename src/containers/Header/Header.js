@@ -11,6 +11,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 import notificationsIcon from "../../assets/imgs/ic_Notification.svg";
+import activeNotificationIcon from "../../assets/imgs/ic_Notification_Active.svg";
 import { Row, Col } from "reactstrap";
 import { setCurrentLang } from "../../store/actions/Lang";
 import { changeLogoutSpinnerStatus } from "../../store/actions/auth";
@@ -20,15 +21,20 @@ import history from "../../routes/History";
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [notificationOpen, setnotificationOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
+
   const [language, setLanguage] = useState(
     localStorage.getItem("lang") === "ar" ? "ar" : "en"
   );
   const dispatch = useDispatch();
-  const  { Auth } = useSelector((state=>state))
+  const { Auth } = useSelector((state) => state);
+  const handleOpenNotificationList = () => {
+    setnotificationOpen(!notificationOpen);
+  };
   useEffect(() => {
     dispatch(setCurrentLang(language));
-  }, [language , dispatch]);
+  }, [language, dispatch]);
 
   return (
     <div className="header-container">
@@ -46,7 +52,13 @@ const Header = () => {
           </Row>
         </Col>
         <Col>
-          <div className={`d-flex align-items-center ${ Auth?.microsoftLoginData ? "justify-content-end" : "justify-content-center"}`}>
+          <div
+            className={`d-flex align-items-center ${
+              Auth?.microsoftLoginData
+                ? "justify-content-end"
+                : "justify-content-center"
+            }`}
+          >
             <div className="px-1">
               <div className="d-flex ">
                 <img src={emailIcon} alt="header-icon" />
@@ -74,42 +86,58 @@ const Header = () => {
                 ></Select>
               </div>
             </div>
-            <div className="px-1">
-              <img src={notificationsIcon} alt="header-icon" />
+            <div
+              className="px-1 cursor-pointer"
+              onClick={() => handleOpenNotificationList()}
+            >
+              <img
+                src={
+                  notificationOpen ? activeNotificationIcon : notificationsIcon
+                }
+                alt="header-icon"
+              />
             </div>
-            {Auth?.microsoftLoginData && localStorage.getItem("token") &&<div className="d-flex px-1 align-items-center">
-              <div className="Siemens-Sans greyColor header-user-name mx-2 font-weight-900 font-size-12">
-              {Auth?.microsoftLoginData?.givenName?.charAt(0)}{Auth?.microsoftLoginData?.surname?.charAt(0)}
+            {Auth?.microsoftLoginData && localStorage.getItem("token") && (
+              <div className="d-flex px-1 align-items-center">
+                <div className="Siemens-Sans greyColor header-user-name mx-2 font-weight-900 font-size-12">
+                  {Auth?.microsoftLoginData?.givenName?.charAt(0)}
+                  {Auth?.microsoftLoginData?.surname?.charAt(0)}
+                </div>
+                <div className="user-full-name ">
+                  <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                    <DropdownToggle
+                      className={language === "ar" ? "text-right" : "text-left"}
+                    >
+                      <p className="Siemens-Sans greyColor font-weight-900 font-size-13 mb-0">
+                        {Auth?.microsoftLoginData?.displayName}
+                      </p>
+                      <p className="Siemens-Sans greyColor font-size-13 mb-0">
+                        Siemens Healthineers
+                      </p>
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem
+                        onClick={() => {
+                          dispatch(changeLogoutSpinnerStatus(true));
+                          localStorage.removeItem("token");
+                          localStorage.removeItem("loginMicrosoftMsal");
+                          localStorage.removeItem("loginApiUserData");
+                          localStorage.removeItem("microsoftLoginData");
+                          history.push({
+                            pathname: "/",
+                            state: {
+                              from: "logout",
+                            },
+                          });
+                        }}
+                      >
+                        <FormattedMessage id="Logout" />
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                </div>
               </div>
-              <div className="user-full-name ">
-                <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-                  <DropdownToggle  className={language==="ar"?"text-right":"text-left"}>
-                    <p className="Siemens-Sans greyColor font-weight-900 font-size-13 mb-0">
-                      {Auth?.microsoftLoginData?.displayName}
-                    </p>
-                    <p className="Siemens-Sans greyColor font-size-13 mb-0">
-                      Siemens Healthineers
-                    </p>
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem onClick={()=>{
-                      dispatch(changeLogoutSpinnerStatus(true));
-                      localStorage.removeItem("token");
-                      localStorage.removeItem("loginMicrosoftMsal");
-                      localStorage.removeItem("loginApiUserData");
-                      localStorage.removeItem("microsoftLoginData");
-                      history.push({
-                        pathname : "/",
-                        state : {
-                          from : 'logout'
-                        }
-                      })
-                      
-                    }}><FormattedMessage id="Logout" /></DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
-              </div>
-            </div>}
+            )}
           </div>
         </Col>
       </Row>
