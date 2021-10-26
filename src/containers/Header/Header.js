@@ -94,6 +94,10 @@ const Header = () => {
                   <DropdownMenu>
                     <DropdownItem onClick={()=>{
                       dispatch(changeLogoutSpinnerStatus(true));
+                      localStorage.removeItem("token");
+                      localStorage.removeItem("loginMicrosoftMsal");
+                      localStorage.removeItem("loginApiUserData");
+                      localStorage.removeItem("microsoftLoginData");
                       history.push({
                         pathname : "/",
                         state : {

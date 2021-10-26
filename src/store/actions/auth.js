@@ -33,3 +33,13 @@ export const changeLogoutSpinnerStatus = (payload ) => ({
   type: SET_LOGOUT_SPINNER,
   payload,
 });
+
+export const Auth = {
+  getAuth() {
+    const isAuthenticated =
+     (localStorage.getItem("token") &&  localStorage.getItem("microsoftLoginData"))
+        ? true
+        : false;
+    return isAuthenticated;
+  }
+};

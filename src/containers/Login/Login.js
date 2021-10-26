@@ -21,10 +21,6 @@ const Login = () => {
     if (window?.history?.state?.state?.from==="logout" && msalInstance) {
       dispatch(storeLoginApiData(false));
       dispatch(storeLoginMicrosoftInstance(false, false));
-      localStorage.removeItem("token");
-      localStorage.removeItem("loginMicrosoftMsal");
-      localStorage.removeItem("loginApiUserData");
-      localStorage.removeItem("microsoftLoginData");
       msalInstance.logout();
     }
   }, [msalInstance , dispatch]);
