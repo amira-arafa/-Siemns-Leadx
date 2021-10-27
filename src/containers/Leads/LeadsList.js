@@ -21,7 +21,7 @@ const LeadsList = () => {
         page_size: 10,
       })
     );
-  }, [dispatch, locale.lang]);
+  }, [dispatch, locale.lang, activePage]);
   const handlePageChange = (e) => {
     setActivepage(e);
     dispatch(
@@ -73,7 +73,7 @@ const LeadsList = () => {
               <div
                 key={item.lead_id}
                 className="cursor-pointer"
-                onClick={() => history.push(`/leads/details/${item.lead_id}`)}
+                // onClick={() => history.push(`/leads/details/${item.lead_id}`)}
               >
                 <LeadCard
                   lang={locale.lang}

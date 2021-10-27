@@ -31,6 +31,8 @@ export default {
     leadStatus : "Lead Status",
     leadDetails : "Lead Details",
     leadID : "Lead ID",
-    Information: "Information"
+    Information: "Information",
+    EmptyNotification : "Empty Notification !",
+    noNotifications : "It seems, No notification in your inbox. start Create leads now."
   }
 }

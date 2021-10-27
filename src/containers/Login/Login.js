@@ -32,14 +32,10 @@ const Login = () => {
       localStorage.setItem("microsoftLoginData", JSON.stringify(data));
       onMsalInstanceChange(msal);
       const loginUserData = {
-        email: "mohammed.sobhy@siemens-healthineers.com",
-        first_name: "mohammed",
-        last_name: "sobhy",
-        login_provider_id: "123456787",
-        // "email": data?.userPrincipalName,
-        // "first_name": data?.givenName,
-        // "last_name": data?.surname,
-        // "login_provider_id": data?.id
+        email: data?.userPrincipalName,
+        first_name: data?.givenName,
+        last_name: data?.surname || "-",
+        login_provider_id: data?.id || "-"
       };
       dispatch(loginAPi(loginUserData));
     }
@@ -47,7 +43,7 @@ const Login = () => {
     return (
       <div className="login-container">
         {console.log("msalInstance",msalInstance)}
-        {(!msalInstance) ? (
+        {(!msalInstance || ! localStorage.getItem("token")) ? (
           <div className="login-with-microsoft">
             <Row>
               <Col sm="8" className="p-0">

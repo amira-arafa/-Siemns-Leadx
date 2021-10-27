@@ -17,7 +17,7 @@ const LeadsDetails = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getLeadDetails(id));
-  }, [dispatch, lang]);
+  }, [dispatch, lang , id]);
   return (
     <div className="leads-details-container">
       <Row>

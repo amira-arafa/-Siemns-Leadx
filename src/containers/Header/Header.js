@@ -16,8 +16,9 @@ import { Row, Col } from "reactstrap";
 import { setCurrentLang } from "../../store/actions/Lang";
 import { changeLogoutSpinnerStatus } from "../../store/actions/auth";
 import { FormattedMessage } from "react-intl";
-import "./Header.scss";
 import history from "../../routes/History";
+import  NotificationPopUp  from "./NotificationPopUp";
+import "./Header.scss";
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -141,6 +142,7 @@ const Header = () => {
           </div>
         </Col>
       </Row>
+      {notificationOpen && <div><NotificationPopUp /></div>}
     </div>
   );
 };
