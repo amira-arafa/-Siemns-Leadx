@@ -1,7 +1,13 @@
+@import "../../scss/variables";
+
 .form-control[readonly] {
     background-color: white;
+    cursor: pointer;
   }
   .form-control[disabled] {
     background-color: #F8F8F8
   }
   
+.flatpickr-month, .flatpickr-monthDropdown-months , .flatpickr-weekdays , .flatpickr-weekday {
+  background-color: $primaryColor !important;
+}

@@ -45,7 +45,7 @@ const LeadsList = () => {
             <br />
             <FormattedMessage id="emptyLeads2" />
           </p>
-          <Button color="none">
+          <Button color="none" onClick={() => history.push('/leads/create')}>
             <img src={plus} alt="plus-icon" />
             <span className="mx-2">
               {" "}
@@ -60,7 +60,7 @@ const LeadsList = () => {
               locale.lang === "ar" ? "text-left" : "text-right"
             } my-5`}
           >
-            <Button color="none">
+            <Button color="none"  onClick={() => history.push('/leads/create')}>
               <img src={plus} alt="plus-icon" />
               <span className="mx-2">
                 {" "}

@@ -143,7 +143,7 @@ const LeadsDetails = () => {
             <div className="card-body card-box-shadow py-4">
               {leadListDetails?.devices?.map((device, i) => {
                 return (
-                  <div>
+                  <div key={i}>
                     <p className="label">Device / Need {i + 1} </p>
                     <p className="lead-data">{device}</p>
                     {leadListDetails.devices.length > i + 1 && <hr />}

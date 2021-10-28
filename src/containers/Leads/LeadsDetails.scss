@@ -3,7 +3,7 @@
 .leads-details-container {
   .RFS-StepButton {
     background-color: #e6e6e6 !important;
-    color: #666666;
+    color: $greyColor;
   }
   width: 57%;
   margin: 0 auto;
@@ -19,7 +19,7 @@
     span {
       background-color: #e6e6e6;
       border-radius: 50%;
-      color: #666666;
+      color: $greyColor;
       padding: 1rem 1.2rem;
     }
   }
@@ -52,13 +52,4 @@
       direction: ltr;
     }
   }
-    .breadCrumpIcon{
-      &:after{
-        content: ">";
-        font-family: "feather";
-        color: #1a1a1a;
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-    }
 }

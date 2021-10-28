@@ -1,0 +1,82 @@
+@import "../../scss/variables";
+
+.create-leads-container {
+  width: 42%;
+  margin: 0 auto;
+  padding-top: 4rem;
+  .sc-bdvvtL {
+    border-bottom: 1px solid $headingColor;
+  }
+  label {
+    color: $greyColor;
+    font-family: "Siemens-Sans";
+    padding: 0.2rem 0.9rem 0rem 0.7rem;
+  }
+  input {
+      padding: 1rem 0.5rem 0rem 0.5rem;
+  }
+  .select__control{
+    border: none;
+    border-bottom: 1px solid $headingColor;
+    border-radius: unset;
+}
+.select__placeholder{
+    color: $greyColor;
+}
+.select__indicator-separator {
+    display: none;
+}
+div[class*="container"] , div[class*="control"]   {
+    &:hover {
+        outline: unset !important;
+        box-shadow:  unset !important;
+    }
+    &:focus {
+        outline: unset !important;
+        box-shadow:  unset !important;
+        border: none !important;
+    }
+  }
+  .customer_duo_date{
+      input {
+        border-bottom: 1px solid $headingColor;
+        padding-top: 1.4rem;
+        padding-bottom: 1rem !important; 
+      }
+  }
+  textarea::placeholder {
+    padding-top: 0.4rem;
+  }
+  .text-area-container {
+    border-bottom: 1px solid $headingColor;
+  }
+  .add-system-btn {
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(179, 179, 179, 1);
+    border-radius: 20px;
+    color: rgba(26, 26, 26, 1);
+    font-size: 17px;
+    font-family: 'Siemens-Sans-bold';
+    &:active {
+      background-color : unset !important;
+      color: rgba(26, 26, 26, 1);
+    }
+  }
+  .select__placeholder {
+    padding-top: 0.6rem;
+  }
+  img[alt="plus"]{
+    background-color: $primaryColor;
+  }
+  button[type="submit"] {
+    background-color: #cf4b00;
+    border-radius: 20px;
+    border: none;
+    padding: 0.5rem 2rem;
+    font-size: 17px;
+    font-family: 'Siemens-Sans-bold';
+
+  }
+
+}
+

@@ -52,8 +52,21 @@ body {
 .font-size-16 {
   font-size: 16px;
 }
+.font-size-17 {
+  font-size: 17px;
+}
 .font-weight-900 {
   font-weight: 900;
+}
+
+.breadCrumpIcon{
+  &:after{
+    content: ">";
+    font-family: "feather";
+    color: #1a1a1a;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 
 #root {

@@ -42,7 +42,6 @@ const Login = () => {
   };
     return (
       <div className="login-container">
-        {console.log("msalInstance",msalInstance)}
         {(!msalInstance || ! localStorage.getItem("token")) ? (
           <div className="login-with-microsoft">
             <Row>
