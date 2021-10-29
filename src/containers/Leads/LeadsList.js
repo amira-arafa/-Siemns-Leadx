@@ -73,7 +73,7 @@ const LeadsList = () => {
               <div
                 key={item.lead_id}
                 className="cursor-pointer"
-                // onClick={() => history.push(`/leads/details/${item.lead_id}`)}
+                onClick={() => history.push(`/leads/details/${item.lead_id}`)}
               >
                 <LeadCard
                   lang={locale.lang}
