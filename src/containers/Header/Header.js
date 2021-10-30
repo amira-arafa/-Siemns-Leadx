@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useRef} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 import logo from "../../assets/imgs/ic_Logo.svg";
@@ -22,6 +22,22 @@ import  NotificationPopUp  from "./NotificationPopUp";
 import "./Header.scss";
 
 const Header = () => {
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef);
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (ref.current && !ref.current.contains(event.target)) {
+              setnotificationOpen(false)
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [ref]);
+}
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notificationOpen, setnotificationOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -144,7 +160,9 @@ const Header = () => {
           </div>
         </Col>
       </Row>
-      {notificationOpen && ( notificationsList?.data?.length>0 ? <NotificationPopUp seeMore={true} className={"full-notification"} notificationsList={notificationsList} /> : <div><NotificationPopUpEmpty /></div>)}
+     <div  ref={wrapperRef}>
+     {notificationOpen && ( notificationsList?.data?.length>0 ? <NotificationPopUp seeMore={true} className={"full-notification"} notificationsList={notificationsList} /> : <div><NotificationPopUpEmpty /></div>)}
+     </div>
     </div>
   );
 };

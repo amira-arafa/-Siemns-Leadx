@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useRef , useEffect} from "react";
 import { FormattedMessage } from "react-intl";
 import notificationIcon from "../../assets/imgs/ic_Notification_Circle.png";
 import moment from "moment-timezone";
@@ -8,6 +8,7 @@ import "./NotificationPopUp.scss";
 import History from "../../routes/History";
 
 const NotificationPopUpEmpty = ({ notificationsList, seeMore , className }) => {
+
   return (
     <div className={`notification-popup-container ${className}`}>
       {notificationsList?.data?.map((notification, i) => {
