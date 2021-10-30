@@ -70,7 +70,7 @@ const LeadsDetails = () => {
             <FormattedMessage id="Rejected"/>
             </span>
           </p>
-          <p className="Siemens-Sans headingColor pt-3"> <FormattedMessage id="rejectedMsg"/></p>
+          <p className="Siemens-Sans headingColor pt-3"> {leadListDetails?.lead_status_note || "-"}</p>
           </div> 
             : <Stepper
               steps={[
