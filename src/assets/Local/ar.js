@@ -33,6 +33,20 @@ export default {
     leadID : "Lead ID",
     Information: "Information",
     EmptyNotification : "Empty Notification !",
-    noNotifications : "It seems, No notification in your inbox. start Create leads now."
+    noNotifications : "It seems, No notification in your inbox. start Create leads now.",
+    New : "جديد",
+    VerifiedbyDCE: "تم التحقق",
+    Confirmed : "مؤكدة",
+    Approved : "تم الموافقة",
+    Promoted : "تم الترقية",
+    OrderBooked : "تم الطلب",
+    Rejected : "مرفوضة",
+    rejectedMsg : "This request has been rejected beacuse the lead out of our supported areas",
+    LeadDate : "Lead Date",
+    HospitalRegion : "Hospital Region",
+    Details : "Details",
+    dateNeedSystem : "Date Need System",
+    Note : "Note",
+    Device : "Device"
   }
 }

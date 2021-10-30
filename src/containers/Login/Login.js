@@ -9,6 +9,7 @@ import loginMicrosoft from "../../assets/imgs/BTN_Sign_in.svg";
 import {
   storeLoginMicrosoftInstance,
   storeLoginApiData,
+  clearFCMtoken
 } from "../../store/actions/auth";
 import "./Login.scss";
 import { FormattedMessage } from "react-intl";

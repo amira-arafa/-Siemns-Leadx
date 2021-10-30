@@ -4,6 +4,7 @@ import Select from "react-select";
 import logo from "../../assets/imgs/ic_Logo.svg";
 import emailIcon from "../../assets/imgs/ic_contact_us.svg";
 import langIcon from "../../assets/imgs/ic_Language.svg";
+import { deviceDetect } from "react-device-detect";
 import {
   Dropdown,
   DropdownToggle,
@@ -14,7 +15,7 @@ import notificationsIcon from "../../assets/imgs/ic_Notification.svg";
 import activeNotificationIcon from "../../assets/imgs/ic_Notification_Active.svg";
 import { Row, Col } from "reactstrap";
 import { setCurrentLang } from "../../store/actions/Lang";
-import { changeLogoutSpinnerStatus } from "../../store/actions/auth";
+import { changeLogoutSpinnerStatus, clearFCMtoken } from "../../store/actions/auth";
 import { FormattedMessage } from "react-intl";
 import history from "../../routes/History";
 import  NotificationPopUp  from "./NotificationPopUp";
@@ -119,17 +120,12 @@ const Header = () => {
                     <DropdownMenu>
                       <DropdownItem
                         onClick={() => {
+                          dispatch(clearFCMtoken({
+                            model : `${deviceDetect().browserName}${localStorage.getItem("token")}`,
+                            token :  localStorage.getItem("firebaseToken")
+                          }));
                           dispatch(changeLogoutSpinnerStatus(true));
-                          localStorage.removeItem("token");
-                          localStorage.removeItem("loginMicrosoftMsal");
-                          localStorage.removeItem("loginApiUserData");
-                          localStorage.removeItem("microsoftLoginData");
-                          history.push({
-                            pathname: "/",
-                            state: {
-                              from: "logout",
-                            },
-                          });
+                 
                         }}
                       >
                         <FormattedMessage id="Logout" />

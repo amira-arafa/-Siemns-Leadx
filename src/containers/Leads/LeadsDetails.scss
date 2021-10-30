@@ -10,6 +10,10 @@
   padding-top: 4rem;
   .status-container {
     background-color: $whiteColor;
+    a {
+      color: $greyColor;
+      font-family: 'Siemens-Sans-bold';
+    }
   }
   .hr {
     border: 0.5px solid #e6e6e6;
