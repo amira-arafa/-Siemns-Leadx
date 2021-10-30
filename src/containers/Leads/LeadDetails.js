@@ -129,6 +129,11 @@ const LeadsDetails = () => {
                 <div>
                   <p className="label"> <FormattedMessage id="HospitalRegion"/> </p>
                   <p className="lead-data">{leadListDetails?.region}</p>
+                  <hr />
+                </div>
+                <div>
+                  <p className="label"> <FormattedMessage id="ContactPerson"/> </p>
+                  <p className="lead-data">{leadListDetails?.contact_person}</p>
                 </div>
               </div>
             </div>

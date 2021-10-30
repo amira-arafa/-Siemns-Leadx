@@ -47,6 +47,7 @@ export default {
     Details : "Details",
     dateNeedSystem : "Date Need System",
     Note : "Note",
-    Device : "Device"
+    Device : "Device",
+    fieldMax40: "الحد الافصي هو ٤٠ حرف",
   }
 }

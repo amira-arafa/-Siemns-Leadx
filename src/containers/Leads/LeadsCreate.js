@@ -50,7 +50,7 @@ const LeadsCreate = ({ intl }) => {
     region: "",
     customer_due_date: "",
     comment: "",
-    contact_person: "-",
+    contact_person: "",
     devices: [],
   });
   useEffect(() => {
@@ -63,14 +63,15 @@ const LeadsCreate = ({ intl }) => {
   const validationSchema = Yup.object({
     lead_name: yupString.required(
       <FormattedMessage id="ThisFieldisRequired" />
-    ),
+    ).max(40, <FormattedMessage id="fieldMax40" />),
     hospital_name: yupString.required(
       <FormattedMessage id="ThisFieldisRequired" />
-    ),
-    region: yupString.required(<FormattedMessage id="ThisFieldisRequired" />),
+    ).max(40, <FormattedMessage id="fieldMax40" />),
+    region: yupString.required(<FormattedMessage id="ThisFieldisRequired" />).max(40, <FormattedMessage id="fieldMax40" />),
     customer_due_date: yupString.required(
       <FormattedMessage id="ThisFieldisRequired" />
     ),
+    contact_person :yupString.required(<FormattedMessage id="ThisFieldisRequired" />).max(40, <FormattedMessage id="fieldMax40" />),
   });
   const onSubmit = (values, actions) => {
     let data = values;
@@ -155,6 +156,12 @@ const LeadsCreate = ({ intl }) => {
         value
           ? formik.setFieldValue("lead_name", value)
           : formik.setFieldValue("lead_name", "");
+        return null;
+      }
+      case "contact_person": {
+        value
+          ? formik.setFieldValue("contact_person", value)
+          : formik.setFieldValue("contact_person", "");
         return null;
       }
       default:
@@ -306,6 +313,20 @@ const LeadsCreate = ({ intl }) => {
             placeholder={messages.AdditionalComment}
           />
         </FormGroup>
+            <FormGroup className="mb-5">
+              <FloatingLabelInput
+                id="contact_person"
+                type="text"
+                name="contact_person"
+                onChange={(e) => {
+                  handleInputChange(e, "contact_person");
+                }}
+                label={messages.ContactPerson}
+              />
+              <FormFeedback className="d-block">
+                {formik.touched.contact_person && formik.errors.contact_person}
+              </FormFeedback>
+            </FormGroup>
         <FormGroup className="mb-4">
           <h4 className="Siemens-Sans-black font-size-17 font-weight-900 headingColor">
             <FormattedMessage id="WhatIsTheLeadComposedOf" />
