@@ -40,9 +40,10 @@ const Header = () => {
   }, [language, dispatch]);
 
   useEffect(() => {
-    dispatch(getNotificationList({page : 1 , page_size: 10}));
+    if( (localStorage.getItem("token") &&  localStorage.getItem("microsoftLoginData") &&  localStorage.getItem("loginApiUserData")) ){
+      dispatch(getNotificationList({page : 1 , page_size: 10}));
+    }
   }, [language, dispatch]);
-
   return (
     <div className="header-container">
       <Row className="nav-bar no-gutters align-items-center">
