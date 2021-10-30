@@ -49,5 +49,7 @@ export default {
     Note : "Note",
     Device : "Device",
     fieldMax40: "الحد الافصي هو ٤٠ حرف",
+    seeMore : "See More",
+    Notifications : "Notifications"
   }
 }

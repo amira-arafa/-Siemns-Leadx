@@ -1,0 +1,15 @@
+.notifications-list-container {
+    width: 57%;
+    margin: 0 auto;
+    padding: 4.5rem 0rem;
+}
+.notification-center {
+    width: 85%;
+    position: unset;
+    padding: 2.5rem 1.5rem;
+    z-index: 10 !important;
+
+    .row {
+        min-height: 5rem;
+    }
+}

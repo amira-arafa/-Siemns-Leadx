@@ -1,5 +1,5 @@
 import { axiosInstance } from "../../network/apis";
-import { STORE_LOGIN_MICROSOFT, STORE_LOGIN_API_DATA, SET_LOGOUT_SPINNER } from "../types/auth";
+import { STORE_LOGIN_MICROSOFT, STORE_LOGIN_API_DATA, SET_LOGOUT_SPINNER, STORE_NOTIFICATIONS_LIST } from "../types/auth";
 import { deviceDetect } from "react-device-detect";
 import history from "../../routes/History";
 
@@ -20,6 +20,22 @@ export const loginAPi = (user) => async (dispatch) => {
     console.log(err);
   }
 };
+
+export const getNotificationList = (params) => async (dispatch) => {
+  try {
+    const res = await axiosInstance.get("/api/v1/users/notifications", {
+      handlerEnabled: true,
+      params
+    });
+    dispatch({
+      type : STORE_NOTIFICATIONS_LIST,
+      payload : res?.data
+    })
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 
 
 export const storeFCMtocken = (body) => async (dispatch) => {
@@ -76,8 +92,6 @@ export const changeLogoutSpinnerStatus = (payload ) => ({
   type: SET_LOGOUT_SPINNER,
   payload,
 });
-
-
 
 export const Auth = {
   getAuth() {

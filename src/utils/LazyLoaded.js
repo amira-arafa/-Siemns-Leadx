@@ -8,4 +8,5 @@ export const LeadsList = React.lazy(() => import('../containers/Leads/LeadsList'
 export const LeadDetails = React.lazy(() => import('../containers/Leads/LeadDetails'));
 export const Header = React.lazy(() => import('../containers/Header/Header'));
 export const Footer = React.lazy(() => import('../containers/Footer/Footer'));
+export const NotificationsCenter = React.lazy(() => import('../containers/Leads/NotificationsCenter'));
 

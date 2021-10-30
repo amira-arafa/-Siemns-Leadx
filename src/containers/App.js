@@ -29,7 +29,7 @@ const App = () => {
       .catch((err) => {
         return err;
       });
-  }, [dispatch]);
+  }, [dispatch, lang]);
   onMessageListener()
   .then(payload => {
     const { body, title } = payload.notification;

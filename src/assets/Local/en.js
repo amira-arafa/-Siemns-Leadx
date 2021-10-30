@@ -48,6 +48,8 @@ export default {
     dateNeedSystem : "Date Need System",
     Note : "Note",
     Device : "Device",
-    fieldMax40: "This field maximum length is 40"
+    fieldMax40: "This field maximum length is 40",
+    seeMore : "See More",
+    Notifications : "Notifications"
   }
 }

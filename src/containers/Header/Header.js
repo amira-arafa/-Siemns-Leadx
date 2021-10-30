@@ -15,9 +15,9 @@ import notificationsIcon from "../../assets/imgs/ic_Notification.svg";
 import activeNotificationIcon from "../../assets/imgs/ic_Notification_Active.svg";
 import { Row, Col } from "reactstrap";
 import { setCurrentLang } from "../../store/actions/Lang";
-import { changeLogoutSpinnerStatus, clearFCMtoken } from "../../store/actions/auth";
+import { changeLogoutSpinnerStatus, clearFCMtoken, getNotificationList } from "../../store/actions/auth";
 import { FormattedMessage } from "react-intl";
-import history from "../../routes/History";
+import  NotificationPopUpEmpty  from "./NotificationPopUpEmpty";
 import  NotificationPopUp  from "./NotificationPopUp";
 import "./Header.scss";
 
@@ -31,11 +31,16 @@ const Header = () => {
   );
   const dispatch = useDispatch();
   const { Auth } = useSelector((state) => state);
+  const { notificationsList } = Auth;
   const handleOpenNotificationList = () => {
     setnotificationOpen(!notificationOpen);
   };
   useEffect(() => {
     dispatch(setCurrentLang(language));
+  }, [language, dispatch]);
+
+  useEffect(() => {
+    dispatch(getNotificationList({page : 1 , page_size: 10}));
   }, [language, dispatch]);
 
   return (
@@ -138,7 +143,7 @@ const Header = () => {
           </div>
         </Col>
       </Row>
-      {notificationOpen && <div><NotificationPopUp /></div>}
+      {notificationOpen && ( notificationsList?.data?.length>0 ? <NotificationPopUp seeMore={true} className={"full-notification"} notificationsList={notificationsList} /> : <div><NotificationPopUpEmpty /></div>)}
     </div>
   );
 };

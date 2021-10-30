@@ -4,7 +4,8 @@ const INITIAL_STATE = {
   loginMicrosoftMsal: localStorage.getItem("loginMicrosoftMsal") ? JSON.parse(localStorage.getItem("loginMicrosoftMsal")) :null,
   loginApiUserData:  localStorage.getItem("loginApiUserData") ? JSON.parse(localStorage.getItem("loginApiUserData")) :null,
   microsoftLoginData:  localStorage.getItem("microsoftLoginData") ? JSON.parse(localStorage.getItem("microsoftLoginData")) :null,
-  logoutSpinner : false
+  logoutSpinner : false,
+  notificationsList : []
 };
 
 export default function Auth(state = INITIAL_STATE, action) {
@@ -19,6 +20,8 @@ export default function Auth(state = INITIAL_STATE, action) {
       return { ...state, loginApiUserData: action.payload };
     case types.SET_LOGOUT_SPINNER: 
       return { ...state , logoutSpinner: action.payload };
+    case types.STORE_NOTIFICATIONS_LIST :
+      return { ...state , notificationsList: action.payload };
     default:
       return state;
   }

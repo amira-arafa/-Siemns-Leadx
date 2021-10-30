@@ -57,7 +57,7 @@ const LeadsCreate = ({ intl }) => {
     dispatch(getBuisinessOprtunities());
     dispatch(getCustomerStatus());
     dispatch(getDevices());
-  }, [dispatch]);
+  }, [dispatch , lang]);
 
   const yupString = Yup.string();
   const validationSchema = Yup.object({
@@ -162,6 +162,12 @@ const LeadsCreate = ({ intl }) => {
         value
           ? formik.setFieldValue("contact_person", value)
           : formik.setFieldValue("contact_person", "");
+        return null;
+      }
+      case "comment": {
+        value
+          ? formik.setFieldValue("comment", value)
+          : formik.setFieldValue("comment", "");
         return null;
       }
       default:
@@ -297,6 +303,7 @@ const LeadsCreate = ({ intl }) => {
             isClearable
             placeholder={messages.WhenDoesTheCustomerNeedTheSystem}
             onChange={(date) => {
+          console.log("Ssss", moment(date[0]).unix(),date[0])
               formik.setFieldValue("customer_due_date", moment(date[0]).unix());
             }}
           />
@@ -311,6 +318,9 @@ const LeadsCreate = ({ intl }) => {
             type="textarea"
             rows="3"
             placeholder={messages.AdditionalComment}
+            onChange={(e) => {
+              handleInputChange(e, "comment");
+            }}
           />
         </FormGroup>
             <FormGroup className="mb-5">

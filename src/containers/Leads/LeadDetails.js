@@ -19,25 +19,18 @@ const LeadsDetails = () => {
     dispatch(getLeadDetails(id));
   }, [dispatch, lang, id]);
   const renderActiveStep = () => {
-    console.log("leadListDetails?.lead_status",leadListDetails?.lead_status)
-    switch (leadListDetails?.lead_status) {
-      case "New":
-      case "جديد":
+    switch (leadListDetails?.lead_status_id) {
+      case 1:
         return 0;
-      case "VerifiedbyDCE":
-      case "تم التحقق":
+      case 2 :
         return 1;
-      case "Confirmed":
-      case "مؤكدة":
+      case 3 :
         return 2;
-      case "Approved":
-      case "تم الموافقة":
+      case 4:
         return 3;
-      case "Promoted":
-      case "تم الترقية":
+      case 6 :
         return 4;
-      case "OrderBooked":
-      case "تم الطلب":
+      case 7:
         return 5;
     }
   };
@@ -115,7 +108,7 @@ const LeadsDetails = () => {
                 <div>
                   <p className="label"> <FormattedMessage id="LeadDate"/> </p>
                   <p className="lead-data">
-                    {moment(leadListDetails?.created_on).format(
+                    {moment.unix(leadListDetails?.created_on).format(
                       "DD MMM YYYY, h:mm a"
                     )}
                   </p>
@@ -162,7 +155,7 @@ const LeadsDetails = () => {
                 <div>
                   <p className="label"> <FormattedMessage id="dateNeedSystem"/> </p>
                   <p className="lead-data">
-                    {moment(leadListDetails?.customer_due_date).format(
+                    {moment.unix(leadListDetails?.customer_due_date).format(
                       "DD MMM YYYY, h:mm a"
                     )}
                   </p>

@@ -2,7 +2,6 @@
 
 .pagination {
     justify-content: center;
-    direction: rtl;
   }
   
   ul {
@@ -20,6 +19,12 @@
     margin: 0px 0.2rem;
     background-color: #fff;
   }
+  // ul.pagination li a[aria-label*='next']{
+  //   transform: rotate(180deg);
+  // }
+  // ul.pagination li a[aria-label*='previous']{
+  //   transform: rotate(180deg);
+  // }
   
   ul.pagination li a {
     text-decoration: none;
