@@ -12,7 +12,15 @@ const config = {
 };
 
 firebase.initializeApp(config);
-const messaging = firebase.messaging();
+
+let messaging = null;
+
+if (firebase.messaging.isSupported()) {
+  messaging = firebase.messaging();
+} else {
+  console.log("no-support");
+}
+
 
 export const requestFirebaseNotificationPermission = () =>
   new Promise((resolve, reject) => {
