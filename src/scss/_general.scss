@@ -27,11 +27,11 @@ body {
 }
 
 .Siemens-Sans-black {
-  font-family: 'Siemens-Sans-black';
+  font-family: "Siemens-Sans-black";
 }
 
 .Siemens-Sans-bold {
-  font-family: 'Siemens-Sans-bold';
+  font-family: "Siemens-Sans-bold";
 }
 
 .font-size-13 {
@@ -62,14 +62,14 @@ body {
   font-weight: 900;
 }
 .date-notification-font {
-   color : $notificationDate;
+  color: $notificationDate;
 }
 .date-message-font {
-  color : $notificationMsg;
+  color: $notificationMsg;
 }
 
-.breadCrumpIcon{
-  &:after{
+.breadCrumpIcon {
+  &:after {
     content: ">";
     font-family: "feather";
     color: #1a1a1a;
@@ -90,13 +90,13 @@ body {
   .Siemens-Sans {
     font-family: "Cairo-Regular";
   }
-  
+
   .Siemens-Sans-black {
-    font-family: 'Cairo-Black';
+    font-family: "Cairo-Black";
   }
-  
+
   .Siemens-Sans-bold {
-    font-family: 'Cairo-Bold';
+    font-family: "Cairo-Bold";
   }
 }
 .ltr {
@@ -114,15 +114,58 @@ body {
 .word-break {
   word-break: break-all;
 }
-.btn-none{
+.btn-none {
   background-color: $primaryColor;
   border: none;
   padding: 0.69rem 1.2rem;
-  font-family: 'Siemens-Sans-black';
+  font-family: "Siemens-Sans-black";
   font-size: 15px;
   color: #fff;
   font-weight: 900;
   &:hover {
-   color: #fff;
+    color: #fff;
   }
 }
+
+//responsive
+
+@media only screen and (max-width: 900px) {
+  //login
+  .login-container {
+    .login-dark-img {
+      display: none;
+    }
+    .col-md-8 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .login-with-microsoft {
+      margin: 15.2% auto !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  //header
+  .header-container{
+
+    .leadsx-container{
+      display: none;
+    }
+    .contact-us-container{
+      display: none;
+    }
+    .col-sm-7{
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+    }
+  }
+  //login 
+  .login-container{
+    .login-data-section {
+      padding: 1.5rem !important;
+    }
+  }
+}
+

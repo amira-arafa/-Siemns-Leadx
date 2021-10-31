@@ -67,10 +67,10 @@ const Header = () => {
       <Row className="nav-bar no-gutters align-items-center">
         <Col sm="7">
           <Row>
-            <Col sm="2">
+            <Col sm="4" md="3" lg="2">
               <img src={logo} alt="Siemns-logo" />
             </Col>
-            <Col>
+            <Col className="leadsx-container">
               <p className="SH-Bree-Headline m-0 headingsColor mx-3">
                 <FormattedMessage id="LeadX" />
               </p>
@@ -85,7 +85,7 @@ const Header = () => {
                 : "justify-content-center"
             }`}
           >
-            <div className="px-1">
+            <div className="px-1 contact-us-container">
               <div className="d-flex ">
                 <img src={emailIcon} alt="header-icon" />
                 <span className="Siemens-Sans greyColor px-1">

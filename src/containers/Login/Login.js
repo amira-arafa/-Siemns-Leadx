@@ -9,7 +9,6 @@ import loginMicrosoft from "../../assets/imgs/BTN_Sign_in.svg";
 import {
   storeLoginMicrosoftInstance,
   storeLoginApiData,
-  clearFCMtoken
 } from "../../store/actions/auth";
 import "./Login.scss";
 import { FormattedMessage } from "react-intl";
@@ -46,7 +45,7 @@ const Login = () => {
         {(!msalInstance || ! localStorage.getItem("token")) ? (
           <div className="login-with-microsoft">
             <Row>
-              <Col sm="8" className="p-0">
+              <Col lg="8" md="8" sm="12" className="p-0">
                 <div className="login-data-section">
                   <img src={logo} alt="logo" className="mb-4" />
                   <h2 className="SH-Bree-Headline headingsColor mb-4">
@@ -75,7 +74,7 @@ const Login = () => {
                   </MicrosoftLogin>
                 </div>
               </Col>
-              <Col className="p-0 m-0">
+              <Col className="p-0 m-0 login-dark-img">
                 <div className="login-img-container">
                   <img src={loginAsset} alt="login-img" />
                 </div>
