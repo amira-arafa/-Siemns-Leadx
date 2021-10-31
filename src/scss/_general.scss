@@ -87,6 +87,17 @@ body {
   min-height: 98vh;
   display: flex;
   flex-direction: column;
+  .Siemens-Sans {
+    font-family: "Cairo-Regular";
+  }
+  
+  .Siemens-Sans-black {
+    font-family: 'Cairo-Black';
+  }
+  
+  .Siemens-Sans-bold {
+    font-family: 'Cairo-Bold';
+  }
 }
 .ltr {
   min-height: 98vh;

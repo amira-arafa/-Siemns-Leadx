@@ -2,7 +2,7 @@ export default {
   ar: {
     home: 'الصفحة الرئيسية',
     HospitalName : 'اسم المركز، المستشفى',
-    CreateNewLead : 'انشئ فرصة محمتملة جديدة',
+    CreateNewLead : 'انشئ فرصة محتملة جديدة',
     Region : 'المنطقة',
     LeadName : ' تسمية الفرصة المحتملة',
     BusinessOpportunitytype : 'نوع الفرصة',

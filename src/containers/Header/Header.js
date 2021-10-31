@@ -37,7 +37,9 @@ const Header = () => {
         };
     }, [ref]);
 }
-
+  const handleSeeMore = () => {
+    setnotificationOpen(false);
+  }
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notificationOpen, setnotificationOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -161,7 +163,7 @@ const Header = () => {
         </Col>
       </Row>
      <div  ref={wrapperRef}>
-     {notificationOpen && ( notificationsList?.data?.length>0 ? <NotificationPopUp seeMore={true} className={"full-notification"} notificationsList={notificationsList} /> : <div><NotificationPopUpEmpty /></div>)}
+     {notificationOpen && ( notificationsList?.data?.length>0 ? <NotificationPopUp seeMore={true} handleSeeMore={handleSeeMore} className={"full-notification"} notificationsList={notificationsList} /> : <div><NotificationPopUpEmpty /></div>)}
      </div>
     </div>
   );
