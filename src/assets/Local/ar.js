@@ -50,6 +50,9 @@ export default {
     Device : "Device",
     fieldMax40: "الحد الافصي هو ٤٠ حرف",
     seeMore : "See More",
-    Notifications : "Notifications"
+    Notifications : "Notifications",
+    Rewarded : "Rewarded",
+    rewardMsg1 :"You have been Rewarded by",
+    rewardMsg2 : "for this lead your reward will be added to your next salary"
   }
 }

@@ -56,4 +56,14 @@
       direction: ltr;
     }
   }
+  .reward-background{
+    background-image: url('../../assets/imgs/Card.svg');
+
+  }
+  .reward-container {
+    span {
+      color: $whiteColor;
+    }
+    color: $whiteColor;
+  }
 }

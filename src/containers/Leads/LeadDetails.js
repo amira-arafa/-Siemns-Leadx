@@ -7,6 +7,7 @@ import Stepper from "react-stepper-horizontal";
 import { FormattedMessage } from "react-intl";
 import moment from "moment-timezone";
 import { getLeadDetails } from "../../store/actions/leads";
+import rewardIcon from "../../assets/imgs/ic_Reward_Circle_black.png"
 import "./LeadsDetails.scss";
 
 const LeadsDetails = () => {
@@ -28,10 +29,6 @@ const LeadsDetails = () => {
         return 2;
       case 4:
         return 3;
-      case 6 :
-        return 4;
-      case 7:
-        return 5;
     }
   };
   if(leadListDetails) {
@@ -57,9 +54,9 @@ const LeadsDetails = () => {
             </p>
           </Col>
         </Row>
-        {leadListDetails?.lead_status && <Row className="status-container pb-3 card-box-shadow">
-          <Col className="stepper-container">
-             {leadListDetails?.lead_status === "Rejected" || leadListDetails?.lead_status === "مرفوضة" ?<div className="pt-3">
+        {leadListDetails?.lead_status && <Row className= {` ${(leadListDetails?.lead_status_id===6 || leadListDetails?.lead_status_id===7) ? "status-container card-box-shadow" : "pb-3 status-container card-box-shadow" }  `}>
+          <Col className={ ` ${(leadListDetails?.lead_status_id===6 || leadListDetails?.lead_status_id===7) && " reward-background" } "stepper-container" `}>
+             {leadListDetails?.lead_status_id === 5 ?<div className="pt-3">
           <p
             style={{color : '#d9001d' }}
             className={`${
@@ -72,14 +69,24 @@ const LeadsDetails = () => {
           </p>
           <p className="Siemens-Sans headingColor pt-3"> {leadListDetails?.lead_status_note || "-"}</p>
           </div> 
-            : <Stepper
+            : (leadListDetails?.lead_status_id=== 6|| leadListDetails?.lead_status_id===7) ? <div className="pt-3 reward-container">
+            <div
+              className={`${
+                lang === "ar" ? "text-right" : "text-left"
+              } Siemens-Sans-bold greyColor font-size-13 mb-0`}
+            >
+              <img src={rewardIcon} alt="reward" />
+              <span  className=" px-2 ">
+              <FormattedMessage id="Rewarded"/>
+              </span>
+            </div>
+            <p className="Siemens-Sans headingColor pt-3 font-size-13"> <FormattedMessage id="rewardMsg1"/> { leadListDetails?.reward} <FormattedMessage id="rewardMsg2" /> </p>
+            </div> : <Stepper
               steps={[
                 { title: <FormattedMessage id="New" /> },
                 { title: <FormattedMessage id="VerifiedbyDCE" /> },
                 { title: <FormattedMessage id="Confirmed" /> },
                 { title: <FormattedMessage id="Approved" /> },
-                { title: <FormattedMessage id="Promoted" /> },
-                { title: <FormattedMessage id="OrderBooked" /> },
               ]}
               activeStep={renderActiveStep()}
               size={45}

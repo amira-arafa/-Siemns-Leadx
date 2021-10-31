@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="830px" height="111px" viewBox="0 0 830 111" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Card</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="830" height="111" rx="4"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03.02.Lead-Details_Rejected_Rewarded" transform="translate(-305.000000, -265.000000)">
+            <g id="Card" transform="translate(305.000000, 265.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#009999" xlink:href="#path-1"></use>
+                <g id="BG" mask="url(#mask-2)">
+                    <g transform="translate(667.319648, -105.024631)" id="Shapes">
+                        <ellipse id="Oval-Copy-7" stroke="#E4E4E4" stroke-width="24" opacity="0.06" cx="116.252438" cy="79.8889939" rx="80.0764852" ry="79.8889939"></ellipse>
+                        <ellipse id="Oval" fill-opacity="0.1" fill="#000000" cx="101.511906" cy="293.958128" rx="101.511906" ry="101.5"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
