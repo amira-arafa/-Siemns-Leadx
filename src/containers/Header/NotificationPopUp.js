@@ -2,7 +2,7 @@ import React , {useRef , useEffect} from "react";
 import { FormattedMessage } from "react-intl";
 import notificationIcon from "../../assets/imgs/ic_Notification_Circle.png";
 import moment from "moment-timezone";
-import rewardIcon from "../../assets/imgs/ic_Reward_Circle.png";
+import rewardIcon from "../../assets/imgs/ic_Reward_Circle_black.png"
 import { Row, Col } from "reactstrap";
 import "./NotificationPopUp.scss";
 import History from "../../routes/History";
@@ -16,12 +16,14 @@ const NotificationPopUpEmpty = ({ notificationsList, seeMore , className }) => {
           <div key={i}>
             <Row>
               <Col sm="2">
-                <img src={notificationIcon} alt="active-notification-icon" />
+                <img src={(notification.lead_status_id===6 || notification.lead_status_id===7) ? rewardIcon: notificationIcon} alt="active-notification-icon" />
               </Col>
               <Col sm={seeMore ? 6 : 8}>
-                <p className="mb-0  date-message-font Siemens-Sans-bold font-size-14">
+                {(notification.lead_status_id===6 || notification.lead_status_id===7) ? <p className="mb-0  date-message-font Siemens-Sans-bold font-size-14">
+                  <FormattedMessage id="Rewarded" />
+                </p> : <p className="mb-0  date-message-font Siemens-Sans-bold font-size-14">
                   <FormattedMessage id="leadID" /> {notification.lead_id}{" "}
-                </p>
+                </p>}
                 <p className="mb-0  date-notification-font Siemens-Sans font-size-14">
                   {notification.message}
                 </p>
