@@ -298,12 +298,12 @@ const LeadsCreate = ({ intl }) => {
         </Row>}
         <FormGroup className="mb-5 customer_duo_date">
           <AppDatePicker
+            minDate={moment().toDate()}
             id="customer_due_date"
             name="customer_due_date"
             isClearable
             placeholder={messages.WhenDoesTheCustomerNeedTheSystem}
             onChange={(date) => {
-          console.log("Ssss", moment(date[0]).unix(),date[0])
               formik.setFieldValue("customer_due_date", moment(date[0]).unix());
             }}
           />

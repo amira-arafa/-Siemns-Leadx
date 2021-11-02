@@ -1,5 +1,6 @@
 import { axiosInstance } from "../../network/apis";
 import History from "../../routes/History";
+import toasters from "../../utils/toasters";
 import { STORE_LEADS_LIST, GET_LEAD_DETAILS, STORE_BUISINESS_OPORTUNITIES , STORE_CUSTOMER_STATUS, STORE_DEVICES } from "../types/index"
 
 export const createLeadApi = (data) => async (dispatch) => {
@@ -9,6 +10,7 @@ export const createLeadApi = (data) => async (dispatch) => {
     });
     History.push("/leads")
   } catch (err) {
+    toasters.Error(err?.response?.data?.errors[0]?.error)
     console.log(err);
   }
 };

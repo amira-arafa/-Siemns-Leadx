@@ -15,6 +15,10 @@
       color: $greyColor;
       font-family: "Siemens-Sans";
     }
+    div[class*="IndicatorsContainer"] {
+      margin-left: unset !important;
+      margin-right: 0.75rem !important;
+    }
     div[class*="control"] {
       border: none !important;
       outline: none !important;

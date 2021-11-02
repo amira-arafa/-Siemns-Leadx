@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic_Location</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01.03.Home" transform="translate(-332.000000, -274.000000)">
+            <g id="Group-3-Copy-12" transform="translate(305.000000, 196.000000)">
+                <g id="Group-2" transform="translate(27.000000, 76.000000)">
+                    <g id="ic_Location" transform="translate(0.000000, 2.000000)">
+                        <rect id="Null" x="0" y="0" width="16" height="16"></rect>
+                        <path d="M8.4,0.8 C5.752,0.8 3.6,2.952 3.6,5.6 C3.6,6.512 3.856,7.368 4.296,8.096 L8.4,15.2 L12.504,8.096 C12.944,7.368 13.2,6.512 13.2,5.6 C13.2,2.952 11.048,0.8 8.4,0.8 Z M8.4,7.6 C7.296,7.6 6.4,6.704 6.4,5.6 C6.4,4.496 7.296,3.6 8.4,3.6 C9.504,3.6 10.4,4.496 10.4,5.6 C10.4,6.704 9.504,7.6 8.4,7.6 Z" id="Color-&amp;-Shape" fill="#009999"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

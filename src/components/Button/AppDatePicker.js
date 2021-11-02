@@ -3,7 +3,7 @@ import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/material_blue.css";
 import "./AppDatePicker.scss";
 
-const AppDatePicker = ({ onChange, placeholder, value, disabled }) => {
+const AppDatePicker = ({ onChange, placeholder, value, disabled, minDate }) => {
   const inputRef = useRef();
   useEffect(() => {
     inputRef.current.flatpickr.altInput.disabled = disabled;
@@ -16,7 +16,7 @@ const AppDatePicker = ({ onChange, placeholder, value, disabled }) => {
       placeholder={placeholder}
       value={value}
       className="form-control m-0"
-      options={{ altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d" }}
+      options={{ altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d" ,minDate : minDate}}
       onChange={onChange}
     />
   );

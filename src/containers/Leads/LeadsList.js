@@ -4,6 +4,7 @@ import emptyLeadsIcon from "../../assets/imgs/ic_no_data_Circle.svg";
 import plus from "../../assets/imgs/plus (1).svg";
 import { getLeadsList } from "../../store/actions/leads";
 import { FormattedMessage } from "react-intl";
+import loactionIcon from "../../assets/imgs/ic_Location.svg";
 import LeadCard from "./LeadCard";
 import { Button } from "reactstrap";
 import history from "../../routes/History";
@@ -81,6 +82,7 @@ const LeadsList = () => {
                   createdAt={item.created_on}
                   leadName={item.lead_name}
                   hospitalName={item.hospital_name}
+                  hospital_icon={ <img src={loactionIcon} alt={"location"}  />}
                   textColor={item.lead_status_text_color}
                   backgroundColor={item.lead_status_back_color}
                   status={item.lead_status}

@@ -87,6 +87,14 @@ body {
   min-height: 98vh;
   display: flex;
   flex-direction: column;
+  .header-container {
+    .nav-bar {
+      div[class*="IndicatorsContainer"] {
+        margin-left: 0.75rem !important;
+        margin-right: unset !important;
+      }
+    }
+  }
   .Siemens-Sans {
     font-family: "Cairo-Regular";
   }
@@ -146,10 +154,10 @@ body {
       margin: 15.2% auto !important;
     }
   }
-    //create lead
-    .create-leads-container{ 
-      width: 90% !important;
-    }
+  //create lead
+  .create-leads-container {
+    width: 90% !important;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -157,25 +165,24 @@ body {
     font-size: 12px !important;
   }
   //header
-  .header-container{
-
-    .leadsx-container{
+  .header-container {
+    .leadsx-container {
       display: none;
     }
-    .contact-us-container{
+    .contact-us-container {
       display: none;
     }
-    .col-sm-5{
+    .col-sm-5 {
       flex-basis: 0;
       flex-grow: 1;
       max-width: 100%;
     }
-    .user-name-container{
+    .user-name-container {
       display: none;
     }
   }
-  //login 
-  .login-container{
+  //login
+  .login-container {
     .login-data-section {
       padding: 1.5rem !important;
     }
@@ -184,6 +191,4 @@ body {
   .lead-list-container {
     width: 90% !important;
   }
-
 }
-

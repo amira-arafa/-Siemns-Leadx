@@ -13,12 +13,13 @@ const LeadCard = ({
   textColor,
   backgroundColor,
   status,
+  hospital_icon
 }) => {
   return (
     <div className="lead-card-container">
       <Row className="no-gutters">
         <Col>
-          <p className="leadIdColor Siemens-Sans-black mb-2">{id}</p>
+          <p className="leadIdColor Siemens-Sans-black mb-2"><FormattedMessage id="ID"/> {"#"}{id}</p>
         </Col>
         <Col>
           <p
@@ -26,7 +27,7 @@ const LeadCard = ({
               lang === "ar" ? "text-left" : "text-right"
             } Siemens-Sans-bold greyColor font-size-13`}
           >
-            {moment(createdAt).format("DD MMM YYYY, h:mm a")}
+            {moment.unix(createdAt).format("DD MMM YYYY, h:mm a")}
           </p>
         </Col>
       </Row>
@@ -39,9 +40,12 @@ const LeadCard = ({
       </Row>
       <Row className="no-gutters">
         <Col>
-          <p className="greyColor Siemens-Sans-bold Siemens-Sans-black mb-0">
+        <div className="d-flex">
+          {hospital_icon}
+          <p className="greyColor Siemens-Sans-bold Siemens-Sans-black mb-0 px-1">
             {hospitalName}
           </p>
+        </div>
         </Col>
       </Row>
       <div className="hr"></div>

@@ -17,7 +17,7 @@ const NotificationPopUpEmpty = ({
     <div className={`notification-popup-container ${className}`}>
       {notificationsList?.data?.map((notification, i) => {
         return (
-          <div key={i}>
+          <div key={i} className="cursor-pointer" onClick={()=>History.push(`/leads/details/${notification.lead_id}`)}>
             <Row>
               <Col sm="2">
                 <img
@@ -49,7 +49,7 @@ const NotificationPopUpEmpty = ({
                 sm={seeMore ? 4 : 2}
                 className="date-notification-font font-size-12"
               >
-                {moment(notification.sent_on).format("DD MMM, h:mm a")}
+                {moment.unix(notification.sent_on).format("DD MMM, h:mm a")}
               </Col>
             </Row>
             {i < notificationsList?.data?.length - 1 && (
