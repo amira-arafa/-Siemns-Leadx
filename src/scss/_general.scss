@@ -35,28 +35,28 @@ body {
 }
 
 .font-size-13 {
-  font-size: 13px;
+  font-size: 0.867rem;
 }
 .font-size-14 {
-  font-size: 14px;
+  font-size: 0.93rem;
 }
 .font-size-12 {
-  font-size: 12px;
+  font-size: 0.8rem;
 }
 .font-size-19 {
-  font-size: 19px;
+  font-size: 1.27rem;
 }
 .font-size-23 {
-  font-size: 23px;
+  font-size: 1.53rem;
 }
 .font-size-18 {
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 .font-size-16 {
-  font-size: 16px;
+  font-size: 1.067rem;
 }
 .font-size-17 {
-  font-size: 17px;
+  font-size: 1.13rem;
 }
 .font-weight-900 {
   font-weight: 900;
@@ -130,6 +130,9 @@ body {
 //responsive
 
 @media only screen and (max-width: 900px) {
+  body {
+    font-size: 13px !important;
+  }
   //login
   .login-container {
     .login-dark-img {
@@ -143,9 +146,16 @@ body {
       margin: 15.2% auto !important;
     }
   }
+    //create lead
+    .create-leads-container{ 
+      width: 90% !important;
+    }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
+  body {
+    font-size: 12px !important;
+  }
   //header
   .header-container{
 
@@ -155,10 +165,13 @@ body {
     .contact-us-container{
       display: none;
     }
-    .col-sm-7{
+    .col-sm-5{
       flex-basis: 0;
       flex-grow: 1;
       max-width: 100%;
+    }
+    .user-name-container{
+      display: none;
     }
   }
   //login 
@@ -167,5 +180,10 @@ body {
       padding: 1.5rem !important;
     }
   }
+  //leads list
+  .lead-list-container {
+    width: 90% !important;
+  }
+
 }
 

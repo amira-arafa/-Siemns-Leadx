@@ -218,7 +218,7 @@ const LeadsCreate = ({ intl }) => {
           </FormFeedback>
         </FormGroup>
         <Row>
-          <Col className={lang === "ar" ? "pl-3 pr-0" : "pl-0 pr-3"}>
+          <Col sm="12" md="6" lg="6" className={lang === "ar" ? "pl-3 pr-0" : "pl-0 pr-3"}>
             <FormGroup className="mb-5">
               <FloatingLabelInput
                 id="hospital_name"
@@ -234,7 +234,7 @@ const LeadsCreate = ({ intl }) => {
               </FormFeedback>
             </FormGroup>
           </Col>
-          <Col className="p-0">
+          <Col className="p-0" sm="12" md="6" lg="6" >
             <FormGroup className="mb-5">
               <FloatingLabelInput
                 type="text"
@@ -253,7 +253,7 @@ const LeadsCreate = ({ intl }) => {
           </Col>
         </Row>
         {buisinessOportunityddp?.length>0 && customerStatusDpp?.length>0 &&  <Row>
-          <Col className={lang === "ar" ? "pl-3 pr-0" : "pl-0 pr-3"}>
+          <Col sm="12" md="6" lg="6" className={lang === "ar" ? "pl-3 pr-0" : "pl-0 pr-3"}>
             <FormGroup className="mb-5">
               <Select
                 classNamePrefix="select"
@@ -272,7 +272,7 @@ const LeadsCreate = ({ intl }) => {
               />
             </FormGroup>
           </Col>
-          <Col className="p-0">
+          <Col sm="12" md="6" lg="6" className="p-0">
             <FormGroup className="mb-5">
               <Select
                 classNamePrefix="select"

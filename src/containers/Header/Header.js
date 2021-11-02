@@ -65,7 +65,7 @@ const Header = () => {
   return (
     <div className="header-container">
       <Row className="nav-bar no-gutters align-items-center">
-        <Col sm="7">
+        <Col sm="5" md="6" lg="7">
           <Row>
             <Col sm="4" md="3" lg="2">
               <img src={logo} alt="Siemns-logo" />
@@ -124,22 +124,25 @@ const Header = () => {
               />
             </div>
             {Auth?.microsoftLoginData && localStorage.getItem("token") && (
-              <div className="d-flex px-1 align-items-center">
-                <div className="Siemens-Sans greyColor header-user-name mx-2 font-weight-900 font-size-12">
-                  {Auth?.microsoftLoginData?.givenName?.charAt(0)}
-                  {Auth?.microsoftLoginData?.surname?.charAt(0)}
-                </div>
+              <div className="px-1 align-items-center">
+              
                 <div className="user-full-name ">
                   <Dropdown isOpen={dropdownOpen} toggle={toggle}>
                     <DropdownToggle
                       className={language === "ar" ? "text-right" : "text-left"}
                     >
-                      <p className="Siemens-Sans greyColor font-weight-900 font-size-13 mb-0">
+                      <div className="Siemens-Sans greyColor header-user-name mx-2 font-weight-900 font-size-12">
+                  {Auth?.microsoftLoginData?.givenName?.charAt(0)}
+                  {Auth?.microsoftLoginData?.surname?.charAt(0)}
+                </div>
+                  <div className="user-name-container">
+                  <p className="Siemens-Sans greyColor font-weight-900 font-size-13 mb-0">
                         {Auth?.microsoftLoginData?.displayName}
                       </p>
                       <p className="Siemens-Sans greyColor font-size-13 mb-0">
                         Siemens Healthineers
                       </p>
+                  </div>
                     </DropdownToggle>
                     <DropdownMenu>
                       <DropdownItem

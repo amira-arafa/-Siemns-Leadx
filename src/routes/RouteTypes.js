@@ -20,15 +20,16 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
       />
     );
   };
-export const PublicRoute = ({ component: Component, ...rest }) => (
-    <Route
-      {...rest}
-      render={props =>
-        !Auth.getAuth() ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to={{ pathname: "/leads" }} />
-        )
-      }
-    />
-  );
+export const PublicRoute = ({ component: Component, ...rest }) =>  {
+  return <Route
+    {...rest}
+    render={props =>
+      !Auth.getAuth() ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{ pathname: "/leads" }} />
+      )
+    }
+  />
+}
+
