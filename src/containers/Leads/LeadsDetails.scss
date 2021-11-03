@@ -67,3 +67,21 @@
     color: $whiteColor;
   }
 }
+
+.rtl {
+  .stepper-container.col {
+    direction: rtl;
+
+    & > div > div > div:first-child div:last-child {
+      right: 50% !important;
+      left: 0px !important;
+      margin-right: 26.5px !important;
+      margin-left: unset !important;
+    }
+
+    & > div > div > div:last-child div:last-child {
+      right: 0 !important;
+      left: 50% !important;
+    }
+  }
+}

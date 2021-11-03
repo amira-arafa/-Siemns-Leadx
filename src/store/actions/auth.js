@@ -50,22 +50,23 @@ export const storeFCMtocken = (body) => async (dispatch) => {
 
 export const clearFCMtoken = (body) => async (dispatch) => {
   try {
-    console.log("bodybodybody",body)
     const res = await axiosInstance.delete("/api/v1/fcm-tokens" , {data : body} , {
       handlerEnabled: true,
       body
     });
     if(res){
-      localStorage.removeItem("token");
-      localStorage.removeItem("loginMicrosoftMsal");
-      localStorage.removeItem("loginApiUserData");
-      localStorage.removeItem("microsoftLoginData");
-      history.push({
-        pathname: "/",
-        state: {
-          from: "logout",
-        },
-      });
+      setTimeout(() => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("loginMicrosoftMsal");
+        localStorage.removeItem("loginApiUserData");
+        localStorage.removeItem("microsoftLoginData");
+        history.push({
+          pathname: "/",
+          state: {
+            from: "logout",
+          },
+        });
+      }, 500);
     }
   } catch (err) {
     console.log(err);

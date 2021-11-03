@@ -17,7 +17,10 @@ const NotificationPopUpEmpty = ({
     <div className={`notification-popup-container ${className}`}>
       {notificationsList?.data?.map((notification, i) => {
         return (
-          <div key={i} className="cursor-pointer" onClick={()=>History.push(`/leads/details/${notification.lead_id}`)}>
+          <div key={i} className="cursor-pointer" onClick={()=>{
+            History.push(`/leads/details/${notification.lead_id}`);
+            handleSeeMore(true);
+          }}>
             <Row>
               <Col sm="2">
                 <img
