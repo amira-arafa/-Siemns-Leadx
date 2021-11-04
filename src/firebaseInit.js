@@ -41,3 +41,5 @@ export const onMessageListener = () =>
       resolve(payload);
     });
   });
+
+export const test = messaging;

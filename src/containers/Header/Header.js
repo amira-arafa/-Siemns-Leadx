@@ -98,6 +98,7 @@ const Header = () => {
               <div className="d-flex">
                 <img src={langIcon} alt="header-icon" />
                 <Select
+                  isSearchable={false}
                   options={[
                     { value: "en", label: "EN" },
                     { value: "ar", label: "ع" },

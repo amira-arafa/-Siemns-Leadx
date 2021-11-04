@@ -54,6 +54,8 @@ export default {
     Rewarded : "Rewarded",
     rewardMsg1 :"You have been Rewarded by",
     rewardMsg2 : "for this lead your reward will be added to your next salary",
-    ID :"ID"
+    ID :"ID",
+    needDevice : "Device / Need",
+    optional : "(Optional)"
   }
 }

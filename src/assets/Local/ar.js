@@ -54,6 +54,8 @@ export default {
     Rewarded : "تم المكافئة",
     rewardMsg1 :"لقد تمت مكافئتك ب",
     rewardMsg2 : "بسبب هذه الفرصة مكافئتك سيتم اضافتها الى راتبك القادم",
-    ID :"ID"
+    ID : "رقم الفرصة",
+    needDevice : "جهاز / نظام",
+    optional : "(اختياري)"
   }
 }

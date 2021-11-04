@@ -2,9 +2,9 @@
 self.addEventListener("notificationclick", function(event) {
 });
 
-importScripts("https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js");
 importScripts(
-  "https://www.gstatic.com/firebasejs/7.22.0/firebase-messaging.js"
+  "https://www.gstatic.com/firebasejs/7.24.0/firebase-messaging.js"
 );
 firebase.initializeApp({
   apiKey: "AIzaSyDntFmJ2zyxaFkzmH-TnR4nTUSNNNpYB1Y",
@@ -44,7 +44,7 @@ self.addEventListener("push", e => {
   dispatchEvent(newEvent);
 });
 
-messaging.setBackgroundMessageHandler(function(payload) {
+messaging.onBackgroundMessage(function(payload) {
   console.log(
     "[firebase-messaging-sw.js] Received background message ",
     payload

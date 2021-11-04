@@ -61,7 +61,7 @@ const LeadsDetails = () => {
           </Col>
         </Row>
 
-        {
+        {leadListDetails?.lead_status_id !== 5 &&
           <Row className="pb-3 status-container  card-box-shadow">
             <Col className={`stepper-container`}>
               <Stepper
@@ -163,7 +163,7 @@ const LeadsDetails = () => {
                     {" "}
                     <FormattedMessage id="LeadDate" />{" "}
                   </p>
-                  <p className="lead-data">
+                  <p className="lead-data date-lead-data">
                     {moment
                       .unix(leadListDetails?.created_on)
                       .format("DD MMM YYYY, h:mm a")}
@@ -234,10 +234,10 @@ const LeadsDetails = () => {
                     {" "}
                     <FormattedMessage id="dateNeedSystem" />{" "}
                   </p>
-                  <p className="lead-data">
+                  <p className="lead-data date-lead-data">
                     {moment
                       .unix(leadListDetails?.customer_due_date)
-                      .format("DD MMM YYYY, h:mm a")}
+                      .format("DD MMM YYYY")}
                   </p>
                   <hr />
                 </div>
@@ -263,7 +263,7 @@ const LeadsDetails = () => {
                 {leadListDetails?.devices?.map((device, i) => {
                   return (
                     <div key={i}>
-                      <p className="label">Device / Need {i + 1} </p>
+                      <p className="label"> <FormattedMessage id="needDevice" /> {i + 1} </p>
                       <p className="lead-data">{device}</p>
                       {leadListDetails.devices.length > i + 1 && <hr />}
                     </div>

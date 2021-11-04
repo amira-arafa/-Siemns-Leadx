@@ -258,7 +258,7 @@ const LeadsCreate = ({ intl }) => {
               <Select
                 classNamePrefix="select"
                 id="BusinessOpportunitytype"
-                placeholder={messages.BusinessOpportunitytype}
+                placeholder={messages.BusinessOpportunitytype + " " + messages.optional}
                 name="business_opportunity_type"
                 isClearable
                 onChange={(selectedOption) => {
@@ -317,7 +317,7 @@ const LeadsCreate = ({ intl }) => {
             name="comment"
             type="textarea"
             rows="3"
-            placeholder={messages.AdditionalComment}
+            placeholder={messages.AdditionalComment + " " + messages.optional}
             onChange={(e) => {
               handleInputChange(e, "comment");
             }}
