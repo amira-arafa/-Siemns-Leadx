@@ -15,6 +15,7 @@ export const loginAPi = (user) => async (dispatch) => {
       model : `${deviceDetect().browserName}${res?.data?.data?.access_token}`,
       token :  localStorage.getItem("firebaseToken")
     }))
+    res && dispatch(getNotificationList({page : 1 , page_size: 10}));
     res && history.push("/leads")
   } catch (err) {
     console.log(err);
