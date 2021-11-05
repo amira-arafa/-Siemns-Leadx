@@ -62,7 +62,7 @@ const Header = () => {
     if( (localStorage.getItem("token") &&  localStorage.getItem("microsoftLoginData") &&  localStorage.getItem("loginApiUserData")) ){
       dispatch(getNotificationList({page : 1 , page_size: 10}));
     }
-  }, [language, dispatch]);
+  }, [language, dispatch , Auth?.microsoftLoginData]);
   return (
     <div className="header-container">
       <Row className="nav-bar no-gutters align-items-center">
@@ -81,12 +81,11 @@ const Header = () => {
         <Col>
           <div
             className={`d-flex align-items-center ${
-              Auth?.microsoftLoginData
-                ? "justify-content-end"
-                : "justify-content-center"
+              "justify-content-end"
+
             }`}
           >
-            {Auth?.microsoftLoginData && localStorage.getItem("token") && <div className="px-1 contact-us-container">
+            { !Auth.logoutKey && localStorage.getItem("loginApiUserData") && localStorage.getItem("token") && <div className="px-1 contact-us-container">
               <div className="d-flex ">
                 <img src={emailIcon} alt="header-icon" />
                 <span className="Siemens-Sans greyColor px-1">
@@ -114,7 +113,7 @@ const Header = () => {
                 ></Select>
               </div>
             </div>
-            {Auth?.microsoftLoginData && localStorage.getItem("token") && <div
+            {!Auth.logoutKey && localStorage.getItem("loginApiUserData") && localStorage.getItem("token") && <div
               className="px-1 cursor-pointer"
               onClick={() => handleOpenNotificationList()}
             >
@@ -125,11 +124,11 @@ const Header = () => {
                 alt="header-icon"
               />
             </div>}
-            {Auth?.microsoftLoginData && localStorage.getItem("token") && (
+            {!Auth.logoutKey && localStorage.getItem("loginApiUserData") && localStorage.getItem("token") && (
               <div className="d-flex px-1 align-items-center">
                 <div className="Siemens-Sans greyColor header-user-name mx-2 font-weight-900 font-size-12">
-                  {Auth?.microsoftLoginData?.givenName?.charAt(0)}
-                  {Auth?.microsoftLoginData?.surname?.charAt(0)}
+                  {JSON.parse(localStorage.getItem("loginApiUserData"))?.user?.name?.charAt(0)}
+                  {JSON.parse(localStorage.getItem("loginApiUserData"))?.user?.name.split(' ').slice(-1).join(' ').charAt(0)}
                 </div>
                 <div className="user-full-name ">
                   <Dropdown isOpen={dropdownOpen} toggle={toggle}>
@@ -137,7 +136,7 @@ const Header = () => {
                       className={language === "ar" ? "text-right" : "text-left"}
                     >
                       <p className="Siemens-Sans greyColor font-weight-900 font-size-13 mb-0">
-                        {Auth?.microsoftLoginData?.displayName}
+                        {JSON.parse(localStorage.getItem("loginApiUserData"))?.user?.name}
                       </p>
                       <p className="Siemens-Sans greyColor font-size-13 mb-0">
                         Siemens Healthineers
@@ -150,7 +149,8 @@ const Header = () => {
                             model : `${deviceDetect().browserName}${localStorage.getItem("token")}`,
                             token :  localStorage.getItem("firebaseToken")
                           }));
-                          dispatch(changeLogoutSpinnerStatus(true));
+                          
+                          // dispatch(changeLogoutSpinnerStatus(true));
                         }}
                       >
                         <FormattedMessage id="Logout" />

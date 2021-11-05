@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   loginApiUserData:  localStorage.getItem("loginApiUserData") ? JSON.parse(localStorage.getItem("loginApiUserData")) :null,
   microsoftLoginData:  localStorage.getItem("microsoftLoginData") ? JSON.parse(localStorage.getItem("microsoftLoginData")) :null,
   logoutSpinner : false,
+  logoutKey: false,
   notificationsList : []
 };
 
@@ -17,9 +18,11 @@ export default function Auth(state = INITIAL_STATE, action) {
         microsoftLoginData: action.userData,
       };
     case types.STORE_LOGIN_API_DATA:
-      return { ...state, loginApiUserData: action.payload };
+      return { ...state, loginApiUserData: action.payload , isLoggedIn : true};
     case types.SET_LOGOUT_SPINNER: 
       return { ...state , logoutSpinner: action.payload };
+    case 'CLEAR_LOGINData' :
+      return { ...state , logoutKey:action.payload };
     case types.STORE_NOTIFICATIONS_LIST :
       return { ...state , notificationsList: action.payload };
     default:

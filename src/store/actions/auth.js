@@ -1,13 +1,36 @@
 import { axiosInstance } from "../../network/apis";
 import { STORE_LOGIN_MICROSOFT, STORE_LOGIN_API_DATA, SET_LOGOUT_SPINNER, STORE_NOTIFICATIONS_LIST } from "../types/auth";
 import { deviceDetect } from "react-device-detect";
+import { UserAgentApplication } from 'msal';
+import toasters from "../../utils/toasters";
+import { config } from "../../containers/Login/Config"
 import history from "../../routes/History";
+
+const   userAgentApplication = new UserAgentApplication({
+  auth: {
+    clientId: config.clientId,
+    redirectUri: config.redirectUri,
+  },
+  cache: {
+    cacheLocation: "localStorage",
+    temporaryCache: "localStorage",
+    storeAuthStateInCookie: true
+  }
+});
+
+const logout = () => {
+  userAgentApplication.logout();
+}
 
 export const loginAPi = (user) => async (dispatch) => {
   try {
     const res = await axiosInstance.post("/api/v1/users/login", user, {
       handlerEnabled: true,
     });
+    dispatch({
+      type : "CLEAR_LOGINData",
+      payload : false
+    })
     dispatch(storeLoginApiData(res.data.data));
     localStorage.setItem("token",res?.data?.data?.access_token);
     localStorage.setItem("loginApiUserData" , JSON.stringify(res?.data?.data))
@@ -18,6 +41,7 @@ export const loginAPi = (user) => async (dispatch) => {
     res && dispatch(getNotificationList({page : 1 , page_size: 10}));
     res && history.push("/leads")
   } catch (err) {
+    toasters.Error(err?.response?.data?.errors[0]?.error)
     console.log(err);
   }
 };
@@ -56,18 +80,21 @@ export const clearFCMtoken = (body) => async (dispatch) => {
       body
     });
     if(res){
-      setTimeout(() => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("loginMicrosoftMsal");
-        localStorage.removeItem("loginApiUserData");
-        localStorage.removeItem("microsoftLoginData");
+      dispatch({
+        type : "CLEAR_LOGINData",
+        payload : true
+      })
+      localStorage.removeItem("token");
+      localStorage.removeItem("loginMicrosoftMsal");
+      localStorage.removeItem("loginApiUserData");
+      localStorage.removeItem("microsoftLoginData");
+      // logout();
         history.push({
           pathname: "/",
           state: {
             from: "logout",
           },
         });
-      }, 500);
     }
   } catch (err) {
     console.log(err);
