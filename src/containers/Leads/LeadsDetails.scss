@@ -12,7 +12,7 @@
     background-color: $whiteColor;
     a {
       color: $greyColor;
-      font-family: 'Siemens-Sans-bold';
+      font-family: "Siemens-Sans-bold";
     }
   }
   .hr {
@@ -56,15 +56,157 @@
       direction: ltr;
     }
   }
-  .reward-background{
-    background-image: url('../../assets/imgs/Card.svg');
-
+  .reward-background {
+    background-image: url("../../assets/imgs/Card.svg");
   }
   .reward-container {
     span {
       color: $whiteColor;
     }
     color: $whiteColor;
+  }
+  .status-1 {
+    .stepper-container {
+      & > div > div > div:nth-child(1),
+      & > div > div > div:nth-child(2),
+      & > div > div > div:nth-child(3),
+      & > div > div > div:nth-child(4),
+      & > div > div > div:nth-child(5) {
+        & div:first-child {
+          & ~ div {
+            color: #d2d2d2 !important;
+            font-family: "Siemens-Sans-bold" !important;
+          }
+          background-color: $whiteColor !important;
+          border: 1px solid #d2d2d2 !important;
+          font-family: "Siemens-Sans-bold" !important;
+          span {
+            color: #d2d2d2 !important;
+            position: relative;
+            bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+  .status-2 {
+    & a:nth-child(2) {
+      color: $greyColor !important;
+    }
+    .stepper-container {
+      & > div > div > div:nth-child(2),
+      & > div > div > div:nth-child(3),
+      & > div > div > div:nth-child(4),
+      & > div > div > div:nth-child(5) {
+        & div:first-child {
+          & ~ div {
+            color: #d2d2d2 !important;
+            font-family: "Siemens-Sans-bold" !important;
+          }
+          background-color: $whiteColor !important;
+          border: 1px solid #d2d2d2 !important;
+          font-family: "Siemens-Sans-bold" !important;
+          span {
+            color: #d2d2d2 !important;
+            position: relative;
+            bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+  .status-3 {
+    .stepper-container {
+      & > div > div > div:first-child {
+        & a:nth-child(1) {
+          color: $greyColor !important;
+        }
+      }
+      & > div > div > div:nth-child(3),
+      & > div > div > div:nth-child(4),
+      & > div > div > div:nth-child(5) {
+        & div:first-child {
+          & ~ div {
+            color: #d2d2d2 !important;
+            font-family: "Siemens-Sans-bold" !important;
+          }
+          background-color: $whiteColor !important;
+          border: 1px solid #d2d2d2 !important;
+          font-family: "Siemens-Sans-bold" !important;
+          span {
+            color: #d2d2d2 !important;
+            position: relative;
+            bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+  .status-4 {
+    .stepper-container {
+      & > div > div > div:nth-child(1),
+      & > div > div > div:nth-child(2) {
+        & a:nth-child(1) {
+          color: $greyColor !important;
+        }
+      }
+      & > div > div > div:nth-child(4),
+      & > div > div > div:nth-child(5) {
+        & div:first-child {
+          & ~ div {
+            color: #d2d2d2 !important;
+            font-family: "Siemens-Sans-bold" !important;
+          }
+          background-color: $whiteColor !important;
+          border: 1px solid #d2d2d2 !important;
+          font-family: "Siemens-Sans-bold" !important;
+          span {
+            color: #d2d2d2 !important;
+            position: relative;
+            bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+  .status-6 {
+    .stepper-container {
+      & > div > div > div:nth-child(1),
+      & > div > div > div:nth-child(2),
+      & > div > div > div:nth-child(3) {
+        & a:nth-child(1) {
+          color: $greyColor !important;
+        }
+      }
+      & > div > div > div:nth-child(5) {
+        & div:first-child {
+          & ~ div {
+            color: #d2d2d2 !important;
+            font-family: "Siemens-Sans-bold" !important;
+          }
+          background-color: $whiteColor !important;
+          border: 1px solid #d2d2d2 !important;
+          font-family: "Siemens-Sans-bold" !important;
+          span {
+            color: #d2d2d2 !important;
+            position: relative;
+            bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+  .status-7 {
+    .stepper-container {
+      & > div > div > div:nth-child(1),
+      & > div > div > div:nth-child(2),
+      & > div > div > div:nth-child(3),
+      & > div > div > div:nth-child(4) {
+        & a:nth-child(1) {
+          color: $greyColor !important;
+        }
+      }
+    }
   }
 }
 

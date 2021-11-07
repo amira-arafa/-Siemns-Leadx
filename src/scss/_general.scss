@@ -138,7 +138,6 @@ body {
   }
 }
 
-
 //responsive
 
 @media only screen and (max-width: 900px) {
@@ -161,6 +160,14 @@ body {
   //create lead
   .create-leads-container {
     width: 90% !important;
+  }
+  //lead details
+  .leads-details-container {
+    width: 90% !important;
+  }
+  .notification-popup-container {
+    width: 50% !important;
+    left: 40% !important;
   }
 }
 
@@ -194,5 +201,35 @@ body {
   //leads list
   .lead-list-container {
     width: 90% !important;
+  }
+  //lead details
+  .leads-details-container {
+    width: 90% !important;
+  }
+  .stepper-container > div > div {
+    display: unset !important;
+  }
+  .stepper-container > div > div > div {
+    display: unset !important;
+    margin-top: 0.3rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  .stepper-container {
+    a {
+      margin-bottom: 1.3rem !important;
+    }
+  }
+  .stepper-container > div > div > div > div ~ div {
+    margin-bottom: 1.3rem !important;
+  }
+  .status-container.card-box-shadow {
+    width: 50% !important;
+    padding-top: 1.7rem !important;
+    padding-bottom: 1.7rem !important;
+  }
+  //notifications
+  .notification-popup-container {
+    width: 70% !important;
+    left: 20% !important;
   }
 }

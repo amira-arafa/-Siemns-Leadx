@@ -62,7 +62,7 @@ const LeadsDetails = () => {
         </Row>
 
         {leadListDetails?.lead_status_id !== 5 &&
-          <Row className="pb-3 status-container  card-box-shadow">
+          <Row className={`${ "pb-3 status-container  card-box-shadow "} status-${leadListDetails?.lead_status_id} `}>
             <Col className={`stepper-container`}>
               <Stepper
                 steps={[

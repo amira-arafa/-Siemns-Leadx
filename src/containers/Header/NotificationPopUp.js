@@ -19,7 +19,7 @@ const NotificationPopUpEmpty = ({
         return (
           <div key={i} className="cursor-pointer" onClick={()=>{
             History.push(`/leads/details/${notification.lead_id}`);
-            handleSeeMore(true);
+            handleSeeMore && handleSeeMore(true);
           }}>
             <Row>
               <Col sm="2">
