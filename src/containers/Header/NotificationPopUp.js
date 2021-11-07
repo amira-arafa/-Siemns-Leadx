@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { FormattedMessage } from "react-intl";
 import notificationIcon from "../../assets/imgs/ic_Notification_Circle.png";
 import moment from "moment-timezone";
@@ -64,7 +64,7 @@ const NotificationPopUpEmpty = ({
       {seeMore && (
         <Row>
           <Col>
-            <a
+            <p
               className=" date-notification-font Siemens-Sans font-size-14 cursor-pointer see-more-color"
               onClick={() => {
                 History.push("/notifications");
@@ -72,7 +72,7 @@ const NotificationPopUpEmpty = ({
               }}
             >
               <FormattedMessage id="seeMore" />
-            </a>
+            </p>
           </Col>
         </Row>
       )}

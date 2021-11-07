@@ -12,6 +12,11 @@ import rewardIcon from "../../assets/imgs/ic_Reward_Circle_black.png";
 import "./LeadsDetails.scss";
 
 const LeadsDetails = () => {
+  const VerifiedbyDCE = <FormattedMessage id="VerifiedbyDCE" /> 
+  const Confirmed = <FormattedMessage id="Confirmed" /> 
+  const Approved = <FormattedMessage id="Approved" /> 
+  const Promoted = <FormattedMessage id="Promoted" /> 
+  const OrderBooked =<FormattedMessage id="OrderBooked" /> 
   const { locale, leads } = useSelector((state) => state);
   const { lang } = locale;
   const { leadListDetails } = leads;
@@ -66,11 +71,11 @@ const LeadsDetails = () => {
             <Col className={`stepper-container`}>
               <Stepper
                 steps={[
-                  { title: <FormattedMessage id="VerifiedbyDCE" /> },
-                  { title: <FormattedMessage id="Confirmed" /> },
-                  { title: <FormattedMessage id="Approved" /> },
-                  { title: <FormattedMessage id="Promoted" /> },
-                  { title: <FormattedMessage id="OrderBooked" /> },
+                  { title: VerifiedbyDCE },
+                  { title: Confirmed },
+                  { title: Approved },
+                  { title: Promoted },
+                  { title: OrderBooked },
                 ]}
                 activeStep={renderActiveStep()}
                 size={45}

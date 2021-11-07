@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Router } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import history from "../routes/History";
@@ -9,14 +9,11 @@ import { ToastContainer , toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { deviceDetect } from "react-device-detect";
 import { storeFCMtocken } from "../store/actions/auth";
-import { requestFirebaseNotificationPermission, onMessageListener, test } from "../firebaseInit";
+import { requestFirebaseNotificationPermission, test } from "../firebaseInit";
 import "./App.scss";
 
 const App = () => {
   const { locale } = useSelector((state) => state);
-  const [toastBody , setToastBody] = useState()
-  const [toastTitle , setToastTitle] = useState()
-  const [action , setAction] = useState(false)
   const dispatch = useDispatch();
   const { lang } = locale;
 
@@ -31,8 +28,6 @@ const App = () => {
     test.onMessage((payload) => {
       if(  payload._notification) {
         const { body, title } =  payload._notification
-        setToastTitle(title);
-        setToastBody(body);
         body && title && toast(<div>
           <p>{body}</p>
           <p>{title}</p>

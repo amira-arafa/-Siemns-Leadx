@@ -16,7 +16,6 @@ import activeNotificationIcon from "../../assets/imgs/ic_Notification_Active.svg
 import { Row, Col } from "reactstrap";
 import { setCurrentLang } from "../../store/actions/Lang";
 import {
-  changeLogoutSpinnerStatus,
   clearFCMtoken,
   getNotificationList,
 } from "../../store/actions/auth";
@@ -54,7 +53,7 @@ const Header = () => {
   );
   const dispatch = useDispatch();
   const { Auth } = useSelector((state) => state);
-  const { notificationsList } = Auth;
+  const { notificationsList, microsoftLoginData } = Auth;
   const handleOpenNotificationList = () => {
     setnotificationOpen(!notificationOpen);
   };
@@ -70,7 +69,7 @@ const Header = () => {
     ) {
       dispatch(getNotificationList({ page: 1, page_size: 10 }));
     }
-  }, [language, dispatch, Auth?.microsoftLoginData]);
+  }, [language, dispatch, microsoftLoginData]);
   return (
     <div className="header-container">
       <Row className="nav-bar no-gutters align-items-center">
@@ -190,8 +189,6 @@ const Header = () => {
                                 token: localStorage.getItem("firebaseToken"),
                               })
                             );
-
-                            // dispatch(changeLogoutSpinnerStatus(true));
                           }}
                         >
                           <FormattedMessage id="Logout" />

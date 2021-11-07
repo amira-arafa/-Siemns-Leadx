@@ -1,26 +1,9 @@
 import { axiosInstance } from "../../network/apis";
 import { STORE_LOGIN_MICROSOFT, STORE_LOGIN_API_DATA, SET_LOGOUT_SPINNER, STORE_NOTIFICATIONS_LIST } from "../types/auth";
 import { deviceDetect } from "react-device-detect";
-import { UserAgentApplication } from 'msal';
 import toasters from "../../utils/toasters";
-import { config } from "../../containers/Login/Config"
 import history from "../../routes/History";
 
-const   userAgentApplication = new UserAgentApplication({
-  auth: {
-    clientId: config.clientId,
-    redirectUri: config.redirectUri,
-  },
-  cache: {
-    cacheLocation: "localStorage",
-    temporaryCache: "localStorage",
-    storeAuthStateInCookie: true
-  }
-});
-
-const logout = () => {
-  userAgentApplication.logout();
-}
 
 export const loginAPi = (user) => async (dispatch) => {
   try {
@@ -88,7 +71,6 @@ export const clearFCMtoken = (body) => async (dispatch) => {
       localStorage.removeItem("loginMicrosoftMsal");
       localStorage.removeItem("loginApiUserData");
       localStorage.removeItem("microsoftLoginData");
-      // logout();
         history.push({
           pathname: "/",
           state: {
