@@ -277,7 +277,7 @@ const LeadsCreate = ({ intl }) => {
         </Row>}
         {sectorDpp?.length>0 &&<Row>
           <Col sm="12" md="6" lg="6" className={lang === "ar" ? "pl-3 pr-0" : "pl-0 pr-3"}>
-            <FormGroup className="mb-5 hospitalName">
+            <FormGroup className="mb-5 citylName">
               <FloatingLabelInput
                 id="city"
                 type="text"
