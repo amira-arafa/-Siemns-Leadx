@@ -1,6 +1,10 @@
 @import "../../scss/variables";
 
 .create-leads-container {
+  .hospitalName {
+    position: relative;
+    top: 0.55rem;
+  }
   width: 42%;
   margin: 0 auto;
   padding-top: 4rem;
@@ -71,7 +75,7 @@ div[class*="container"] , div[class*="control"]   {
     }
   }
   .select__placeholder {
-    padding-top: 0.6rem;
+    padding-top: 0.9rem;
   }
   img[alt="plus"]{
     background-color: $primaryColor;

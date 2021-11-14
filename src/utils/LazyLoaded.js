@@ -9,4 +9,5 @@ export const LeadDetails = React.lazy(() => import('../containers/Leads/LeadDeta
 export const Header = React.lazy(() => import('../containers/Header/Header'));
 export const Footer = React.lazy(() => import('../containers/Footer/Footer'));
 export const NotificationsCenter = React.lazy(() => import('../containers/Leads/NotificationsCenter'));
+export const ContactUs = React.lazy(() => import('../containers/Leads/ContactUs'));
 

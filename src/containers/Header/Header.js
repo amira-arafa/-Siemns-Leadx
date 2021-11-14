@@ -98,7 +98,7 @@ const Header = () => {
             {!Auth.logoutKey &&
               localStorage.getItem("loginApiUserData") &&
               localStorage.getItem("token") && (
-                <div className="px-1 contact-us-container">
+                <div className="px-1 contact-us-container cursor-pointer" onClick={()=>History.push('/contact-us')}>
                   <div className="d-flex ">
                     <img src={emailIcon} alt="header-icon" />
                     <span className="Siemens-Sans greyColor px-1">

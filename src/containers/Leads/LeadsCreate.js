@@ -23,19 +23,25 @@ import {
   createLeadApi,
   getBuisinessOprtunities,
   getCustomerStatus,
+  getRegions,
   getDevices,
+  getSectors
 } from "../../store/actions/leads";
 import "./LeadsCreate.scss";
 
 const LeadsCreate = ({ intl }) => {
   const dispatch = useDispatch();
   const { locale, leads } = useSelector((state) => state);
-  const { buisinessOportunityddp, customerStatusDpp, devicesDpp } = leads;
+  const { buisinessOportunityddp, customerStatusDpp, devicesDpp , regionDpp, sectorDpp } = leads;
   const { lang } = locale;
   const [business_opportunity_type, setBuisinessOportunityValue] = useState("");
   const [customerStatus, setCustomerStatus] = useState(undefined);
+  const [region, setRegion] = useState(undefined);
+  const [sector, setSector] = useState(undefined);
   const [DevicesErr, setDevicesErr] = useState("");
   const [customerStatusErr, setCustomerStatusErr] = useState("");
+  const [regionErr, setregionErr] = useState("");
+  const [sectorErr, setSectorErr] = useState("");
 
   
   const [dynamicDevicesLead, setDynamicDevicesLead] = useState([
@@ -47,7 +53,7 @@ const LeadsCreate = ({ intl }) => {
   const [initialValues] = useState({
     lead_name: "",
     hospital_name: "",
-    region: "",
+    city: "",
     customer_due_date: "",
     comment: "",
     contact_person: "",
@@ -57,6 +63,8 @@ const LeadsCreate = ({ intl }) => {
     dispatch(getBuisinessOprtunities());
     dispatch(getCustomerStatus());
     dispatch(getDevices());
+    dispatch(getRegions());
+    dispatch(getSectors())
   }, [dispatch , lang]);
 
   const yupString = Yup.string();
@@ -67,7 +75,7 @@ const LeadsCreate = ({ intl }) => {
     hospital_name: yupString.required(
       <FormattedMessage id="ThisFieldisRequired" />
     ).max(40, <FormattedMessage id="fieldMax40" />),
-    region: yupString.required(<FormattedMessage id="ThisFieldisRequired" />).max(40, <FormattedMessage id="fieldMax40" />),
+    city: yupString.required(<FormattedMessage id="ThisFieldisRequired" />).max(40, <FormattedMessage id="fieldMax40" />),
     customer_due_date: yupString.required(
       <FormattedMessage id="ThisFieldisRequired" />
     ),
@@ -76,6 +84,8 @@ const LeadsCreate = ({ intl }) => {
   const onSubmit = (values, actions) => {
     let data = values;
     data.customer_status = customerStatus?.value;
+    data.region = region?.value;
+    data.sector = sector?.value;
     data.business_opportunity_type = business_opportunity_type.value;
     const devices = dynamicDevicesLead.map((device)=>{
       return device?.value?.value
@@ -84,13 +94,18 @@ const LeadsCreate = ({ intl }) => {
     data.devices = devices.filter((ele)=>  ele !==null).filter(ele=> ele!==undefined);
     emptyDevices && setDevicesErr(<FormattedMessage id="ThisFieldisRequired" />);
     customerStatus ===undefined && setCustomerStatusErr(<FormattedMessage id="ThisFieldisRequired" />);
-    if(!emptyDevices && customerStatus!==undefined && data?.lead_name && data?.customer_due_date && data?.region && data?.customer_due_date){
+
+    sector ===undefined && setSectorErr(<FormattedMessage id="ThisFieldisRequired" />);
+    region ===undefined && setregionErr(<FormattedMessage id="ThisFieldisRequired" />);
+    if(!emptyDevices && sector!==undefined  &&  region!==undefined  &&customerStatus!==undefined && data?.lead_name && data?.customer_due_date && data?.customer_due_date){
        dispatch(createLeadApi(data));
     }
   };
   const handleOthers = (values, actions) => {
     let data = values;
     data.customer_status = customerStatus?.value;
+    data.sector = sector?.value;
+    data.region = region?.value;
     data.business_opportunity_type = business_opportunity_type.value;
     const devices = dynamicDevicesLead.map((device)=>{
       return device?.value?.value
@@ -99,6 +114,8 @@ const LeadsCreate = ({ intl }) => {
     data.devices = devices.filter((ele)=>  ele !==null).filter(ele=> ele!==undefined);
     emptyDevices && setDevicesErr(<FormattedMessage id="ThisFieldisRequired" />);
     customerStatus ===undefined && setCustomerStatusErr(<FormattedMessage id="ThisFieldisRequired" />);
+    sector ===undefined && setSectorErr(<FormattedMessage id="ThisFieldisRequired" />);
+    region ===undefined && setregionErr(<FormattedMessage id="ThisFieldisRequired" />);
 
   };
   const formik = useFormik({
@@ -146,10 +163,10 @@ const LeadsCreate = ({ intl }) => {
           : formik.setFieldValue("hospital_name", "");
         return null;
       }
-      case "region": {
+      case "city": {
         value
-          ? formik.setFieldValue("region", value)
-          : formik.setFieldValue("region", "");
+          ? formik.setFieldValue("city", value)
+          : formik.setFieldValue("city", "");
         return null;
       }
       case "lead_name": {
@@ -217,9 +234,9 @@ const LeadsCreate = ({ intl }) => {
             {formik.touched.lead_name && formik.errors.lead_name}
           </FormFeedback>
         </FormGroup>
-        <Row>
+        {regionDpp?.length>0 &&<Row>
           <Col sm="12" md="6" lg="6" className={lang === "ar" ? "pl-3 pr-0" : "pl-0 pr-3"}>
-            <FormGroup className="mb-5">
+            <FormGroup className="mb-5 hospitalName">
               <FloatingLabelInput
                 id="hospital_name"
                 type="text"
@@ -235,23 +252,70 @@ const LeadsCreate = ({ intl }) => {
             </FormGroup>
           </Col>
           <Col className="p-0" sm="12" md="6" lg="6" >
-            <FormGroup className="mb-5">
-              <FloatingLabelInput
-                type="text"
+           <FormGroup className="mb-5">
+              <Select
+                classNamePrefix="select"
                 id="region"
+                placeholder={messages.Region}
                 name="region"
-                onChange={(e) => {
-                  handleInputChange(e, "region");
+                isClearable
+                onChange={(selectedOption) => {
+                  setregionErr("")
+                  if (selectedOption) {
+                    setRegion(selectedOption);
+                  } else {
+                    setRegion("");
+                  }
                 }}
-                label={messages.Region}
+                options={listOptions(regionDpp)}
               />
-
               <FormFeedback className="d-block">
-                {formik.touched.region && formik.errors.region}
+                {regionErr}
+              </FormFeedback>
+              </FormGroup>
+          </Col>
+        </Row>}
+        {sectorDpp?.length>0 &&<Row>
+          <Col sm="12" md="6" lg="6" className={lang === "ar" ? "pl-3 pr-0" : "pl-0 pr-3"}>
+            <FormGroup className="mb-5 hospitalName">
+              <FloatingLabelInput
+                id="city"
+                type="text"
+                name="city"
+                onChange={(e) => {
+                  handleInputChange(e, "city");
+                }}
+                label={messages.city}
+              />
+              <FormFeedback className="d-block">
+                {formik.touched.city && formik.errors.city}
               </FormFeedback>
             </FormGroup>
           </Col>
-        </Row>
+          <Col className="p-0" sm="12" md="6" lg="6" >
+           <FormGroup className="mb-5">
+              <Select
+                classNamePrefix="select"
+                id="sector"
+                placeholder={messages.Sector}
+                name="sector"
+                isClearable
+                onChange={(selectedOption) => {
+                  setSectorErr("")
+                  if (selectedOption) {
+                    setSector(selectedOption);
+                  } else {
+                    setSector("");
+                  }
+                }}
+                options={listOptions(sectorDpp)}
+              />
+              <FormFeedback className="d-block">
+                {sectorErr}
+              </FormFeedback>
+              </FormGroup>
+          </Col>
+        </Row>}
         {buisinessOportunityddp?.length>0 && customerStatusDpp?.length>0 &&  <Row>
           <Col sm="12" md="6" lg="6" className={lang === "ar" ? "pl-3 pr-0" : "pl-0 pr-3"}>
             <FormGroup className="mb-5">
@@ -302,6 +366,7 @@ const LeadsCreate = ({ intl }) => {
             id="customer_due_date"
             name="customer_due_date"
             isClearable
+            lang={lang}
             placeholder={messages.WhenDoesTheCustomerNeedTheSystem}
             onChange={(date) => {
               formik.setFieldValue("customer_due_date", moment(date[0]).unix());

@@ -12,11 +12,11 @@ import rewardIcon from "../../assets/imgs/ic_Reward_Circle_black.png";
 import "./LeadsDetails.scss";
 
 const LeadsDetails = () => {
-  const VerifiedbyDCE = <FormattedMessage id="VerifiedbyDCE" /> 
-  const Confirmed = <FormattedMessage id="Confirmed" /> 
-  const Approved = <FormattedMessage id="Approved" /> 
-  const Promoted = <FormattedMessage id="Promoted" /> 
-  const OrderBooked =<FormattedMessage id="OrderBooked" /> 
+  const VerifiedbyDCE = <FormattedMessage id="VerifiedbyDCE" />;
+  const Confirmed = <FormattedMessage id="Confirmed" />;
+  const Approved = <FormattedMessage id="Approved" />;
+  const Promoted = <FormattedMessage id="Promoted" />;
+  const OrderBooked = <FormattedMessage id="OrderBooked" />;
   const { locale, leads } = useSelector((state) => state);
   const { lang } = locale;
   const { leadListDetails } = leads;
@@ -66,8 +66,12 @@ const LeadsDetails = () => {
           </Col>
         </Row>
 
-        {leadListDetails?.lead_status_id !== 5 &&
-          <Row className={`${ "pb-3 status-container  card-box-shadow "} status-${leadListDetails?.lead_status_id} `}>
+        {leadListDetails?.lead_status_id !== 5 && (
+          <Row
+            className={`${"pb-3 status-container  card-box-shadow "} status-${
+              leadListDetails?.lead_status_id
+            } `}
+          >
             <Col className={`stepper-container`}>
               <Stepper
                 steps={[
@@ -88,8 +92,10 @@ const LeadsDetails = () => {
               />
             </Col>
           </Row>
-        }
-
+        )}
+        {leadListDetails?.lead_status_id === 5 && <h2 className="headingColor font-size-19 Siemens-Sans-black mb-4 py-1">
+          <FormattedMessage id="reason" />
+        </h2>}
         {(leadListDetails?.lead_status_id === 5 ||
           leadListDetails?.lead_status_id === 6 ||
           leadListDetails?.lead_status_id === 7) && (
@@ -252,6 +258,26 @@ const LeadsDetails = () => {
                     <FormattedMessage id="Note" />{" "}
                   </p>
                   <p className="lead-data">{leadListDetails?.comment || "-"}</p>
+                  <hr />
+                </div>
+                <div>
+                  <p className="label">
+                    {" "}
+                    <FormattedMessage id="sector" />
+                  </p>
+                  <p className="lead-data">
+                    {leadListDetails?.sector || "-"}
+                  </p>
+                  <hr />
+                </div>
+                <div>
+                  <p className="label">
+                    {" "}
+                    <FormattedMessage id="city" />
+                  </p>
+                  <p className="lead-data">
+                    {leadListDetails?.city || "-"}
+                  </p>
                 </div>
               </div>
             </div>
@@ -268,7 +294,10 @@ const LeadsDetails = () => {
                 {leadListDetails?.devices?.map((device, i) => {
                   return (
                     <div key={i}>
-                      <p className="label"> <FormattedMessage id="needDevice" /> {i + 1} </p>
+                      <p className="label">
+                        {" "}
+                        <FormattedMessage id="needDevice" /> {i + 1}{" "}
+                      </p>
                       <p className="lead-data">{device}</p>
                       {leadListDetails.devices.length > i + 1 && <hr />}
                     </div>

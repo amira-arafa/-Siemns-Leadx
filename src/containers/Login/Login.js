@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { UserAgentApplication } from 'msal';
 import { config } from './Config';
@@ -12,6 +12,12 @@ import { FormattedMessage } from "react-intl";
 
 const Login = () => {
   const dispatch = useDispatch();
+  useEffect(()=> {
+    dispatch({
+      type : "CLEAR_LOGINData",
+      payload : false
+    })
+  },[dispatch])
 
 
 const   userAgentApplication = new UserAgentApplication({

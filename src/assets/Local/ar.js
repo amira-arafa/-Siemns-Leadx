@@ -1,7 +1,7 @@
 export default {
   ar: {
     home: 'الصفحة الرئيسية',
-    HospitalName : 'اسم المركز، المستشفى',
+    HospitalName : 'اسم المركز / المستشفى',
     CreateNewLead : 'انشئ فرصة محتملة جديدة',
     Region : 'المنطقة',
     LeadName : ' تسمية الفرصة المحتملة',
@@ -56,6 +56,15 @@ export default {
     rewardMsg2 : "بسبب هذه الفرصة مكافئتك سيتم اضافتها الى راتبك القادم",
     ID : "رقم الفرصة",
     needDevice : "جهاز / نظام",
-    optional : "(اختياري)"
+    optional : "(اختياري)",
+    reason : "السبب",
+    chatWithUs : "Chat with us",
+    chatHere: "You can chat with us here",
+    sendEmail : "Send Email",
+    sendQorProblem : "Send your question or problem",
+    customerService : "Customer Service",
+    city: "المدينة",
+    Sector : "Sector"
+
   }
 }

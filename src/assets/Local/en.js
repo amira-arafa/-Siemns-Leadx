@@ -7,7 +7,7 @@ export default {
     LeadName : 'Lead Name',
     BusinessOpportunitytype : 'Business Opportunity Type',
     CustomerStatus : 'Customer Status',
-    WhenDoesTheCustomerNeedTheSystem : 'When does the customer need the system?',
+    WhenDoesTheCustomerNeedTheSystem : 'System is needed on ?',
     AdditionalComment : 'Additional Comment',
     ContactPerson : 'Contact Person',
     WhatIsTheLeadComposedOf : 'What is the lead composed of?',
@@ -45,7 +45,7 @@ export default {
     LeadDate : "Lead Date",
     HospitalRegion : "Hospital Region",
     Details : "Details",
-    dateNeedSystem : "Date Need System",
+    dateNeedSystem : "System is needed on",
     Note : "Note",
     Device : "Device",
     fieldMax40: "This field maximum length is 40",
@@ -53,9 +53,18 @@ export default {
     Notifications : "Notifications",
     Rewarded : "Rewarded",
     rewardMsg1 :"You have been Rewarded by",
-    rewardMsg2 : "for this lead your reward will be added to your next salary",
+    rewardMsg2 : "for this lead your reward will be added to your next payroll",
     ID :"ID",
     needDevice : "Device / Need",
-    optional : "(Optional)"
+    optional : "(Optional)",
+    reason : "Reason",
+    chatWithUs : "Chat with us",
+    chatHere: "You can chat with us here",
+    sendEmail : "Send Email",
+    sendQorProblem : "Send your question or problem",
+    customerService : "Customer Service",
+    city: "city",
+    Sector : "Sector"
+
   }
 }

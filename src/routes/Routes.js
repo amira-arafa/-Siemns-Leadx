@@ -18,6 +18,7 @@ const Routes = (
         <LazyComponent.Profile path="/profile" />
         <LazyComponent.LeadsCreate path="/leads/create" />
         <LazyComponent.NotificationsCenter path="/notifications" />
+        <LazyComponent.ContactUs path="/contact-us" />
         {/* <LazyComponent.LeadsList path="/leads" exact /> */}
         <Route  path="/leads/details/:id" exact component={LazyComponent.LeadDetails}/>
         <Redirect from="*" to="/" />
