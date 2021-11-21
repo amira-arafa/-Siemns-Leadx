@@ -42,4 +42,4 @@ export const onMessageListener = () =>
     });
   });
 
-export const test = firebase.messaging() ? messaging : null;
+export const test = firebase.messaging.isSupported() ? messaging : null;
