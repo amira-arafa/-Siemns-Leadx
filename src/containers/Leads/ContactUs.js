@@ -19,7 +19,7 @@ const ContactUs = () => {
             </h2>
             <div className="card">
               <div className="card-body card-box-shadow py-4 contact-us-section">
-                <div>
+                {/* <div>
                   <Row>
                       <Col  sm="1" className="contact-us-logos">
                       <img src={chatIcon} alt="chat-icon"/>
@@ -30,7 +30,7 @@ const ContactUs = () => {
                       </Col>
                   </Row>
                   <hr className="mb-2"/>
-                </div>
+                </div> */}
                 <div>
                   <Row>
                       <Col sm="1" className="contact-us-logos">

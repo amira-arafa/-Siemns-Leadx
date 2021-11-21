@@ -25,7 +25,7 @@ const NotificationPopUpEmpty = ({
               <Col sm="2">
                 <img
                   src={
-                    notification.lead_status_id === 6 ||
+                    notification.lead_status_id === 4 ||
                     notification.lead_status_id === 7
                       ? rewardIcon
                       : notificationIcon
@@ -34,7 +34,7 @@ const NotificationPopUpEmpty = ({
                 />
               </Col>
               <Col sm={seeMore ? 6 : 8}>
-                {notification.lead_status_id === 6 ||
+                {notification.lead_status_id === 4 ||
                 notification.lead_status_id === 7 ? (
                   <p className="mb-0  date-message-font Siemens-Sans-bold font-size-14">
                     <FormattedMessage id="Rewarded" />
