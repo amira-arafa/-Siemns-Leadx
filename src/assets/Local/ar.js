@@ -43,7 +43,7 @@ export default {
     Rejected : "مرفوضة",
     rejectedMsg : "This request has been rejected beacuse the lead out of our supported areas",
     LeadDate : "تاريخ الفرصه المحتمله",
-    HospitalRegion : "اسم المركز ، المستشفى",
+    HospitalRegion : "المنطقة",
     Details : "التفاصيل",
     dateNeedSystem : "موعد تسليم النظام للعميل",
     Note : "ملاحظه",
@@ -64,7 +64,7 @@ export default {
     sendQorProblem : "Send your question or problem",
     customerService : "Customer Service",
     city: "المدينة",
-    Sector : "Sector"
+    Sector : "قطاع"
 
   }
 }

@@ -97,13 +97,11 @@ const LeadsDetails = () => {
           <FormattedMessage id="reason" />
         </h2>}
         {(leadListDetails?.lead_status_id === 5 ||
-          leadListDetails?.lead_status_id === 6 ||
-          leadListDetails?.lead_status_id === 7) && (
+          leadListDetails?.lead_status_id === 7 || leadListDetails?.lead_status_id === 4) && (
           <Row className={` "pb-3 mt-4 status-container card-box-shadow"  `}>
             <Col
               className={` ${
-                (leadListDetails?.lead_status_id === 6 ||
-                  leadListDetails?.lead_status_id === 7) &&
+                (leadListDetails?.lead_status_id === 7 || leadListDetails?.lead_status_id === 4) &&
                 " reward-background"
               } "stepper-container" `}
             >
@@ -127,8 +125,8 @@ const LeadsDetails = () => {
                     {leadListDetails?.lead_status_note || "-"}
                   </p>
                 </div>
-              ) : leadListDetails?.lead_status_id === 6 ||
-                leadListDetails?.lead_status_id === 7 ? (
+              ) : 
+                leadListDetails?.lead_status_id === 7 || leadListDetails?.lead_status_id === 4 ? (
                 <div className="pt-3 reward-container">
                   <div
                     className={`${
@@ -196,18 +194,20 @@ const LeadsDetails = () => {
                 <div>
                   <p className="label">
                     {" "}
-                    <FormattedMessage id="HospitalRegion" />{" "}
+                    <FormattedMessage id="city" />
                   </p>
-                  <p className="lead-data">{leadListDetails?.region}</p>
-                  <hr />
+                  <p className="lead-data">
+                    {leadListDetails?.city || "-"}
+                  </p>
+                  <hr/>
                 </div>
                 <div>
                   <p className="label">
                     {" "}
-                    <FormattedMessage id="ContactPerson" />{" "}
+                    <FormattedMessage id="HospitalRegion" />{" "}
                   </p>
-                  <p className="lead-data">{leadListDetails?.contact_person}</p>
-                  <hr/>
+                  <p className="lead-data">{leadListDetails?.region || "-"}</p>
+                  <hr />
                 </div>
                 <div>
                   <p className="label">
@@ -222,11 +222,9 @@ const LeadsDetails = () => {
                 <div>
                   <p className="label">
                     {" "}
-                    <FormattedMessage id="city" />
+                    <FormattedMessage id="ContactPerson" />{" "}
                   </p>
-                  <p className="lead-data">
-                    {leadListDetails?.city || "-"}
-                  </p>
+                  <p className="lead-data">{leadListDetails?.contact_person}</p>
                 </div>
               </div>
             </div>
