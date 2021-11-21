@@ -42,4 +42,4 @@ export const onMessageListener = () =>
     });
   });
 
-export const test = messaging;
+export const test = firebase.messaging() ? messaging : null;

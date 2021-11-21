@@ -207,6 +207,26 @@ const LeadsDetails = () => {
                     <FormattedMessage id="ContactPerson" />{" "}
                   </p>
                   <p className="lead-data">{leadListDetails?.contact_person}</p>
+                  <hr/>
+                </div>
+                <div>
+                  <p className="label">
+                    {" "}
+                    <FormattedMessage id="Sector" />
+                  </p>
+                  <p className="lead-data">
+                    {leadListDetails?.sector || "-"}
+                  </p>
+                  <hr />
+                </div>
+                <div>
+                  <p className="label">
+                    {" "}
+                    <FormattedMessage id="city" />
+                  </p>
+                  <p className="lead-data">
+                    {leadListDetails?.city || "-"}
+                  </p>
                 </div>
               </div>
             </div>
@@ -258,26 +278,6 @@ const LeadsDetails = () => {
                     <FormattedMessage id="Note" />{" "}
                   </p>
                   <p className="lead-data">{leadListDetails?.comment || "-"}</p>
-                  <hr />
-                </div>
-                <div>
-                  <p className="label">
-                    {" "}
-                    <FormattedMessage id="sector" />
-                  </p>
-                  <p className="lead-data">
-                    {leadListDetails?.sector || "-"}
-                  </p>
-                  <hr />
-                </div>
-                <div>
-                  <p className="label">
-                    {" "}
-                    <FormattedMessage id="city" />
-                  </p>
-                  <p className="lead-data">
-                    {leadListDetails?.city || "-"}
-                  </p>
                 </div>
               </div>
             </div>

@@ -25,7 +25,7 @@ const App = () => {
   }, [dispatch, lang]);
 
 
-    test.onMessage((payload) => {
+  test && test.onMessage((payload) => {
       if(  payload._notification) {
         const { body, title } =  payload._notification
         body && title && toast(<div>
